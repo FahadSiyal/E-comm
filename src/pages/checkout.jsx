@@ -1,7 +1,7 @@
 import React from "react";
-import { Invoicecomp } from "../components/Invoicecomp";
+
 import { Label } from "@radix-ui/react-label";
-import { Input } from "../components/ui/Input";
+
 import { Textarea } from "../components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ import {
   removeFromCart,
   deleteFromCart,
 } from "@/features/cart/cartSlice";
-import { MdShoppingCartCheckout } from "react-icons/md";
+
 
 const Checkout = () => {
   const navigate = useNavigate();
