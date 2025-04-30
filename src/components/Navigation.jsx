@@ -79,7 +79,7 @@ const Navbar = () => {
           {/* Mobile Menu Button (Hamburger Icon) */}
           <div className="flex justify-center items-center lg:hidden gap-3">
             <li className="list-none">
-              <Sheet >
+              <Sheet>
                 <SheetTrigger asChild>
                   <Button
                     variant="outline"
@@ -103,48 +103,71 @@ const Navbar = () => {
                     {CartItems.map((item, index) => (
                       <Card
                         key={index}
-                        className="w-full h-20 flex items-center justify-between px-4 rounded-md bg-gray-100"
+                        className="w-full flex items-center bg-red-500  justify-between p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-200 flex-row"
                       >
                         {/* Left Side: Product Info */}
-                        <div className="flex items-center gap-2 justify-center">
-                          <div className="bg-gray-800 h-7 w-7"></div>
+                        <div className="flex items-center gap-4">
+                          <div className="h-12 w-12 rounded-md bg-gray-100 flex items-center justify-center overflow-hidden">
+                            {item.image ? (
+                              <img
+                                src={item.image}
+                                alt={item.name}
+                                className="h-full w-full object-cover"
+                              />
+                            ) : (
+                              <div className="h-full w-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
+                                <span className="text-xs text-white">
+                                  No Image
+                                </span>
+                              </div>
+                            )}
+                          </div>
                           <div>
-                            <h1 className="text-sm font-semibold">
+                            <h2 className="text-sm font-medium text-gray-800 line-clamp-1">
                               {item.name}
-                            </h1>
-                            <span className="text-xs text-gray-500">
-                              Quantity : {item.quantity}
-                            </span>
+                            </h2>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-xs font-medium text-gray-500">
+                                Qty: {item.quantity}
+                              </span>
+                              {item.price && (
+                                <span className="text-xs font-semibold text-gray-700">
+                                  • ${(item.price * item.quantity).toFixed(2)}
+                                </span>
+                              )}
+                            </div>
                           </div>
                         </div>
 
                         {/* Right Side: Controls */}
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2">
                           <button
-                            onClick={() => {
-                              dispatch(addToCart(item));
-                            }}
-                            className="px-2 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600"
+                            onClick={() => dispatch(removeFromCart(item))}
+                            className="h-8 w-8 flex items-center justify-center rounded-full bg-red-50 text-red-500 hover:bg-red-100 transition-colors"
+                            aria-label="Decrease quantity"
                           >
-                            +
+                            <span className="text-lg">−</span>
                           </button>
+
+                          <span className="text-sm font-medium w-6 text-center">
+                            {item.quantity}
+                          </span>
+
                           <button
-                            onClick={() => {
-                              console.log("Trying to add", item._id);
-                              dispatch(removeFromCart(item));
-                            }}
-                            className="px-2 py-1 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600"
+                            onClick={() => dispatch(addToCart(item))}
+                            className="h-8 w-8 flex items-center justify-center rounded-full bg-green-50 text-green-500 hover:bg-green-100 transition-colors"
+                            aria-label="Increase quantity"
                           >
-                            -
+                            <span className="text-lg">+</span>
                           </button>
-                          <div
-                            onClick={() => {
-                              dispatch(deleteFromCart(item));
-                            }}
-                            className="hover:text-red-600 cursor-pointer text-lg"
+
+                          <button
+                            onClick={() => dispatch(deleteFromCart(item))}
+                            className="h-8 w-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 ml-2 transition-colors"
+                            aria-label="Remove item"
                           >
-                            <MdDelete />
-                          </div>
+                            <MdDelete className="text-lg" />
+                          </button>
                         </div>
                       </Card>
                     ))}

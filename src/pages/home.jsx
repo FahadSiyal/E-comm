@@ -34,8 +34,8 @@ function Home() {
                 { name: 'Women',  img: './women.jpg'  },
                 { name: 'Childrens', img: './children-sample.jpg'  }
               ].map((dish, index) => (
-                <Card key={index} className='w-full sm:w-80 justify-center mx-auto'>
-                <div className="relative w-full h-52 overflow-hidden rounded-lg">
+                <Card key={index} className='w-full sm:w-80 justify-center mx-auto py-0'>
+                <div className="relative w-full h-76   overflow-hidden rounded-lg">
                   <img src={dish.img} alt="" className="w-full h-full object-cover" />
                   
                   <div className="absolute bottom-2 left-2 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-md">
