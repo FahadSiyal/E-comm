@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+body{
+  font-family: "Poppins", serif;
+  background-color: rgb(238, 238, 238);
+}
