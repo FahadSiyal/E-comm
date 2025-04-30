@@ -140,7 +140,7 @@ console.log("changed")
             {products?.map((product) => (
               <Card
                 key={product._id}
-                className="bg-white shadow-md rounded-lg py-0   mt-4 flex  lg:h-88 md:h-88 h-66 flex-col gap-7 "
+                className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex  lg:h-88 md:h-88 h-66 flex-col gap-7 "
                 onClick={() => {
                   console.log(product._id);
                 }}
