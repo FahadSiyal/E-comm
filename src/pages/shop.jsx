@@ -53,7 +53,7 @@ const Shop = () => {
     fetchProducts();
   }, [currentPage]);
 
-
+console.log("changed")
   
 
 
