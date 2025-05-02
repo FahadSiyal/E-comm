@@ -103,11 +103,11 @@ const Navbar = () => {
                     {CartItems.map((item, index) => (
                       <Card
                         key={index}
-                        className="w-full flex items-center bg-red-500  justify-between p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-200 flex-row"
+                        className="w-full flex items-center   justify-between p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-200 flex-row"
                       >
                         {/* Left Side: Product Info */}
                         <div className="flex items-center gap-4">
-                          <div className="h-12 w-12 rounded-md bg-gray-100 flex items-center justify-center overflow-hidden">
+                          <div className="h-12 w-12 rounded-md bg-red-500 flex items-center justify-center overflow-hidden">
                             {item.image ? (
                               <img
                                 src={item.image}
