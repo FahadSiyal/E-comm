@@ -46,7 +46,7 @@ export function SignUpForm() {
   return (
     <div className={cn("flex flex-col gap-6")}>
       <div>
-        <div className="pb-6  flex flex-col gap-1 m-1">
+        <div className="pb-6  flex flex-col gap-1 m-1 px-2">
           <div className="text-3xl font-bold">Signup</div>
           <CardDescription >
             Enter your details below to signup 
@@ -54,7 +54,7 @@ export function SignUpForm() {
         </div>
         <div>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div className="flex flex-col gap-6 m-1">
+            <div className="flex flex-col gap-6 m-1 px-2">
               <div className="grid gap-2">
                 <Label htmlFor="email">Username</Label>
                 <Input
@@ -68,7 +68,7 @@ export function SignUpForm() {
                   </p>
                 )}
               </div>
-              <div className="grid gap-2">
+              <div className="grid gap-2 ">
                 <Label htmlFor="email">Email</Label>
                 <Input {...register("email")} placeholder="m@example.com" />
                 {errors.email && (
