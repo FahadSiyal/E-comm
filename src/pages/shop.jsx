@@ -151,7 +151,7 @@ console.log("changed")
                     backgroundImage: `url(./children-sample.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    backgroundPosition: "center",
+                   
                   }}
                 >
                   <div>

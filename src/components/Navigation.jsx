@@ -45,6 +45,9 @@ import { Card } from "./ui/card";
 import { SignUpForm } from "./SignUpForm";
 
 const Navbar = () => {
+
+
+  
   const openSignUp = useSelector((state) => state.dialog.isSignUpOpen);
   const openLogin = useSelector((state) => state.dialog.isLoginOpen);
   const dispatch = useDispatch();
