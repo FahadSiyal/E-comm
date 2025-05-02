@@ -45,20 +45,10 @@ import { Card } from "./ui/card";
 import { SignUpForm } from "./SignUpForm";
 
 const Navbar = () => {
-
-
-
-
   const openSignUp = useSelector((state) => state.dialog.isSignUpOpen);
   const openLogin = useSelector((state) => state.dialog.isLoginOpen);
   const dispatch = useDispatch();
-
-  //add a cart counter to the cart icon
   const CartItems = useSelector((state) => state.cart.cartItems);
-  const totalCartItems = CartItems.reduce((acc, item) => acc + item.quantity, 0);
-  const cartCount = CartItems.reduce((acc, item) => acc + item.quantity, 0);
-  console.log("Cart Count:", cartCount); // Log the cart count
-
   console.log(CartItems[0]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage mobile menu state
@@ -67,15 +57,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const token = Cookies.get("token");
-    console.log("token" + token);
-
     setIsAuthenticated(!!token); // Convert token to boolean
-  }, [Cookies.get("token")]); // Dependency array to re-run effect when token changes
+  }, []);
 
   const handleLogout = () => {
     Cookies.remove("token");
     setIsAuthenticated(false);
-    // Redirect to login page after logout
+    navigate("/login"); // Redirect to login page after logout
   };
 
   return (
@@ -94,162 +82,7 @@ const Navbar = () => {
             <div className="none">
             </div>
             <li className="list-none">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className=" flex items-center  border-1"
-                  >
-
-                    <FaShoppingCart /> {/* Cart icon */}
-
-                  </Button>
-                </SheetTrigger>
-
-                <SheetContent className=" transition-transform duration-300 ease-in-out transform">
-                  <SheetHeader>
-                    <SheetTitle>Add To Cart</SheetTitle>
-                    <SheetDescription>
-                      Make changes to your profile here. Click save when you're
-                      done.
-                    </SheetDescription>
-                  </SheetHeader>
-
-                  {/* Cart items container */}
-                  <div className="flex flex-col gap-1 ">
-                    {CartItems.map((item, index) => (
-                      <Card
-                        key={index}
-                        className="w-full flex items-center   justify-between p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-200 "
-                      >
-                        {/* Left Side: Product Info */}
-                        <div className="flex items-center gap-4">
-                          <div className="h-12 w-12 rounded-md bg-red-500 flex items-center justify-center overflow-hidden">
-                            {item.image ? (
-                              <img
-                                src={item.image}
-                                alt={item.name}
-                                className="h-full w-full object-cover"
-                              />
-                            ) : (
-                              <div className="h-full w-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                                <span className="text-xs text-white">
-                                  No Image
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                          <div>
-                            <h2 className="text-sm font-medium text-gray-800 line-clamp-1">
-                              {item.name}
-                            </h2>
-                            <div className="flex items-center gap-2 mt-1">
-                              <span className="text-xs font-medium text-gray-500">
-                                Qty: {item.quantity}
-                              </span>
-                              {item.price && (
-                                <span className="text-xs font-semibold text-gray-700">
-                                  • ${(item.price * item.quantity).toFixed(2)}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Right Side: Controls */}
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => dispatch(removeFromCart(item))}
-                            className="h-8 w-8 flex items-center justify-center rounded-full bg-red-50 text-red-500 hover:bg-red-100 transition-colors"
-                            aria-label="Decrease quantity"
-                          >
-                            <span className="text-lg">−</span>
-                          </button>
-
-                          <span className="text-sm font-medium w-6 text-center">
-                            {item.quantity}
-                          </span>
-
-                          <button
-                            onClick={() => dispatch(addToCart(item))}
-                            className="h-8 w-8 flex items-center justify-center rounded-full bg-green-50 text-green-500 hover:bg-green-100 transition-colors"
-                            aria-label="Increase quantity"
-                          >
-                            <span className="text-lg">+</span>
-                          </button>
-
-                          <button
-                            onClick={() => dispatch(deleteFromCart(item))}
-                            className="h-8 w-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 ml-2 transition-colors"
-                            aria-label="Remove item"
-                          >
-                            <MdDelete className="text-lg" />
-                          </button>
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
-                  {/* Optional HR divider */}
-
-                  <SheetFooter>
-                    <SheetClose asChild>
-                      <a href="/Checkout">
-                        {" "}
-                        <Button
-                          className="bg-black text-white w-full"
-                          type="submit"
-                        >
-                          <MdShoppingCartCheckout /> Check Out
-                        </Button>
-                      </a>
-                    </SheetClose>
-                  </SheetFooter>
-                </SheetContent>
-              </Sheet>
-            </li>
-            <button
-              className="lg:hidden text-gray-700 p-2 rounded-md focus:outline-none"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
-          {/* Navbar Links - Desktop */}
-          <div className="hidden lg:flex lg:w-auto lg:order-1">
-            <ul className="flex space-x-8 font-medium">
-              <li>
-                <NavLink to="/" className="">
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/wp-admin" className="">
-                  AdminPanel
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/shop" className="">
-                  Shop
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/about" className="">
-                  About Us
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact" className="">
-                  Contact Us
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-
-          {/* Authentication Buttons - Desktop */}
-          <div className="hidden lg:flex items-center lg:order-2 space-x-4">
-            {isAuthenticated ? (
-              <>
-                            <Sheet className="bg-white">
+                  <Sheet className="bg-white">
                     <SheetTrigger asChild>
                       <Button
                         variant="outline"
@@ -261,7 +94,7 @@ const Navbar = () => {
                       </Button>
                     </SheetTrigger>
 
-                    <SheetContent className="bg-white transition-transform duration-300 ease-in-out transform">
+                    <SheetContent className=" lg:bg-white  bg-white transition-transform duration-300 ease-in-out transform">
                       <SheetHeader>
                         <SheetTitle>Add To Cart</SheetTitle>
                         <SheetDescription>
@@ -271,11 +104,11 @@ const Navbar = () => {
                       </SheetHeader>
 
                       {/* Cart items container */}
-                      <div className="flex flex-col gap-1 ">
+                      <div className="flex flex-col gap-1 w-96 overflow-scroll ">
                         {CartItems.map((item, index) => (
                           <Card
                             key={index}
-                            className="w-full h-20 flex items-center justify-between px-4 rounded-md bg-gray-100 flex-row"
+                            className="w-full h-20 flex items-center px-5 rounded-md bg-gray-200 flex-row"
                           >
                             {/* Left Side: Product Info */}
                             <div className="flex items-center gap-2 justify-center">
@@ -325,7 +158,7 @@ const Navbar = () => {
 
                       <SheetFooter>
                         <SheetClose asChild>
-                          <a href="/Checkout">
+                          <Link to="/Checkout">
                             {" "}
                             <Button
                               className="bg-black text-white w-full"
@@ -333,19 +166,52 @@ const Navbar = () => {
                             >
                               <MdShoppingCartCheckout /> Check Out
                             </Button>
-                          </a>
+                          </Link>
                         </SheetClose>
                       </SheetFooter>
                     </SheetContent>
                   </Sheet>
+                </li>
+            <button
+              className="lg:hidden text-gray-700 p-2 rounded-md focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+          {/* Navbar Links - Desktop */}
+          <div className="hidden lg:flex lg:w-auto lg:order-1">
+            <ul className="flex space-x-8 font-medium">
+              <li>
+                <NavLink to="/" className="">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/shop" className="">
+                  Shop
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/about" className="">
+                  About Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact" className="">
+                  Contact Us
+                </NavLink>
+              </li>
+            </ul>
+          </div>
 
-                      
-
+          {/* Authentication Buttons - Desktop */}
+          <div className="hidden lg:flex items-center lg:order-2 space-x-4">
+            {isAuthenticated ? (
+              <>
                 <div className="flex items-center bg-white">
-
-
-                  {/* <img className="h-8" src="6596121.png" alt="User Avatar" /> */}
-                  <span className="ml-2 text-gray-700">Hi,{ }</span>
+                  <img className="h-8" src="6596121.png" alt="User Avatar" />
+                  <span className="ml-2 text-gray-700">Hi, User</span>
                 </div>
                 <button
                   onClick={handleLogout}
@@ -356,6 +222,7 @@ const Navbar = () => {
               </>
             ) : (
               <>
+              {/* pc Sheet */}
                 <li className="list-none">
                   <Sheet className="bg-white">
                     <SheetTrigger asChild>
@@ -378,7 +245,7 @@ const Navbar = () => {
                       </Button>
                     </SheetTrigger>
 
-                    <SheetContent className="bg-white transition-transform duration-300 ease-in-out transform">
+                    <SheetContent className=" lg:bg-white  bg-white transition-transform duration-300 ease-in-out transform">
                       <SheetHeader>
                         <SheetTitle>Add To Cart</SheetTitle>
                         <SheetDescription>
@@ -388,11 +255,11 @@ const Navbar = () => {
                       </SheetHeader>
 
                       {/* Cart items container */}
-                      <div className="flex flex-col gap-1 ">
+                      <div className="flex flex-col gap-1 w-96 overflow-scroll ">
                         {CartItems.map((item, index) => (
                           <Card
                             key={index}
-                            className="w-full h-20 flex items-center justify-between px-4 rounded-md bg-gray-100 flex-row"
+                            className="w-full h-20 flex items-center justify-between px-4 rounded-md bg-gray-200 flex-row"
                           >
                             {/* Left Side: Product Info */}
                             <div className="flex items-center gap-2 justify-center">
@@ -459,6 +326,7 @@ const Navbar = () => {
                 {/* Login Form Dialog */}
                 <Dialog
                   open={openLogin}
+                
                   onOpenChange={(openLogin) => dispatch(closeLoginDialog())}
                 >
                   <div className="flex justify-center gap-3 ">
@@ -476,7 +344,7 @@ const Navbar = () => {
                         </span>
                       </button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px] bg-white">
+                    <DialogContent className="sm:max-w-[425px] p-[0] bg-white  ">
                       <DialogHeader hidden>
                         <DialogTitle>Sign Up</DialogTitle>
                         <DialogDescription>
@@ -508,7 +376,7 @@ const Navbar = () => {
                       </button>
                     </DialogTrigger>
 
-                    <DialogContent className="sm:max-w-[425px] bg-white">
+                    <DialogContent className="sm:max-w-[425px] p-[0] bg-white">
                       <DialogHeader hidden>
                         <DialogTitle>Sign Up</DialogTitle>
                         <DialogDescription>
@@ -535,11 +403,6 @@ const Navbar = () => {
                 <li className="py-2 border-b">
                   <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
                     Home
-                  </NavLink>
-                </li>
-                <li className="py-2 border-b">
-                  <NavLink to="/wp-admin" onClick={() => setIsMenuOpen(false)}>
-                    Admin Panel
                   </NavLink>
                 </li>
 
@@ -582,5 +445,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
