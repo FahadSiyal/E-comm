@@ -89,7 +89,7 @@ const Navbar = () => {
                   </Button>
                 </SheetTrigger>
 
-                <SheetContent className="bg-white transition-transform duration-300 ease-in-out transform">
+                <SheetContent className=" transition-transform duration-300 ease-in-out transform">
                   <SheetHeader>
                     <SheetTitle>Add To Cart</SheetTitle>
                     <SheetDescription>
@@ -103,7 +103,7 @@ const Navbar = () => {
                     {CartItems.map((item, index) => (
                       <Card
                         key={index}
-                        className="w-full flex items-center   justify-between p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-200 flex-row"
+                        className="w-full flex items-center   justify-between p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-200 "
                       >
                         {/* Left Side: Product Info */}
                         <div className="flex items-center gap-4">
@@ -266,7 +266,7 @@ const Navbar = () => {
                         {CartItems.map((item, index) => (
                           <Card
                             key={index}
-                            className="w-full h-20 flex items-center justify-between px-4 rounded-md bg-gray-100"
+                            className="w-full h-20 flex items-center justify-between px-4 rounded-md bg-gray-100 flex-row"
                           >
                             {/* Left Side: Product Info */}
                             <div className="flex items-center gap-2 justify-center">
