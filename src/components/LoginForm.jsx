@@ -1,16 +1,23 @@
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import {
-  CardDescription,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "../services/axiosInstance";
-import { loginSchema } from "../validations/formSchema";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+
+// Components from your UI library
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { CardDescription } from "@/components/ui/card";
+
+// Form validation schema
+import { loginSchema } from "../validations/formSchema";
+
+// Axios instance for API calls
+import axios from "../services/axiosInstance";
+
+// Redux actions
 import {
   closeLoginDialog,
   openSignUpDialog,
@@ -30,7 +37,7 @@ export function LoginForm() {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post("/auth/login", data);
-      console.log("logged in:", data);
+      console.log("Logged in:", data);
       reset();
       toast.success("Logged in successfully!");
       dispatch(closeLoginDialog());
@@ -41,57 +48,67 @@ export function LoginForm() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-4 sm:p-6 md:p-8">
-      <div className="pb-6 flex flex-col gap-1">
-        <h2 className="text-3xl font-bold text-center sm:text-left">Login</h2>
-        <CardDescription className="text-center sm:text-left">
-          Enter your email below to login  your account
+    <div className="w-full max-w-sm mx-auto px-3 py-6 sm:px-4">
+      <div className="pb-4 flex flex-col gap-1">
+        <h2 className="text-2xl font-semibold text-center sm:text-left">
+          Login
+        </h2>
+        <CardDescription className="text-center sm:text-left text-sm">
+          Enter your email below to login to your account
         </CardDescription>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="grid gap-4">
+        <div className="flex flex-col gap-4">
           {/* Email */}
-          <div className="grid gap-1">
-            <Label htmlFor="email">Email</Label>
+          <div className="flex flex-col gap-1">
+            <Label htmlFor="email" className="text-sm">
+              Email
+            </Label>
             <Input
               {...register("email")}
               placeholder="m@example.com"
-              className="outline  outline-black"
+              className="outline outline-1 outline-black text-sm"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm">{errors.email.message}</p>
+              <p className="text-red-500 text-xs">{errors.email.message}</p>
             )}
           </div>
 
           {/* Password */}
-          <div className="grid gap-1">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="password">Password</Label>
+          <div className="flex flex-col gap-1">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="password" className="text-sm">
+                Password
+              </Label>
               <a
                 href="#"
-                className="text-sm text-gray-600 hover:underline"
+                className="text-xs text-gray-600 hover:underline"
               >
-                Forgot your password?
+                Forgot?
               </a>
             </div>
-            <Input {...register("password")} type="password" />
+            <Input
+              {...register("password")}
+              type="password"
+              className="text-sm"
+            />
             {errors.password && (
-              <p className="text-red-500 text-sm">{errors.password.message}</p>
+              <p className="text-red-500 text-xs">{errors.password.message}</p>
             )}
           </div>
 
           {/* Buttons */}
-          <Button type="submit" className="w-full bg-gray-200">
+          <Button type="submit" className="w-full bg-gray-200 text-sm py-2">
             Login
           </Button>
-          <Button variant="outline" className="w-full">
+          <Button variant="outline" className="w-full text-sm py-2">
             Login with Google
           </Button>
         </div>
 
         {/* Sign Up Link */}
-        <div className="mt-4 text-center text-sm">
+        <div className="mt-4 text-center text-xs sm:text-sm">
           Don't have an account?{" "}
           <a
             href="#"
@@ -100,7 +117,7 @@ export function LoginForm() {
               dispatch(openSignUpDialog());
               dispatch(closeLoginDialog());
             }}
-            className="underline underline-offset-4"
+            className="underline underline-offset-2"
           >
             Sign Up
           </a>
