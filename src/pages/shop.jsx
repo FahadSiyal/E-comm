@@ -38,7 +38,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log("Fetching products...");
+        console.log("Fetching products again...");
         const response = await axiosInstance.get(
           `/products?page=${currentPage}&limit=${itemsPerPage}`
         );
