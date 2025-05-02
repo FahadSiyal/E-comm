@@ -57,7 +57,7 @@ export function LoginForm() {
             <Input
               {...register("email")}
               placeholder="m@example.com"
-              className="outline outline-1 outline-black"
+              className="outline  outline-black"
             />
             {errors.email && (
               <p className="text-red-500 text-sm">{errors.email.message}</p>
