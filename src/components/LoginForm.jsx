@@ -35,7 +35,7 @@ export function LoginForm() {
          
          try {
            const response = await axios.post("/auth/login", data);
-           console.log("signned up :",data);
+           console.log("signned up :",response.data);
            reset()
             toast.success(" loggined successfully!");
             dispatch(closeLoginDialog())
