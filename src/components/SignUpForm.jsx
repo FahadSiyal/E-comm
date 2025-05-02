@@ -46,15 +46,15 @@ export function SignUpForm() {
   return (
     <div className={cn("flex flex-col gap-6")}>
       <div>
-        <div className="pb-6  flex flex-col gap-1">
+        <div className="pb-6  flex flex-col gap-1 m-1">
           <div className="text-3xl font-bold">Signup</div>
-          <CardDescription>
-            Enter your email below to login to your account
+          <CardDescription >
+            Enter your details below to signup 
           </CardDescription>
         </div>
         <div>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 m-1">
               <div className="grid gap-2">
                 <Label htmlFor="email">Username</Label>
                 <Input
