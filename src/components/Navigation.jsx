@@ -363,7 +363,7 @@ const Navbar = () => {
                       </button>
                     </DialogTrigger>
 
-                    <DialogContent className="sm:max-w-[425px] bg-white">
+                    <DialogContent className="sm:max-w-[425px] p-[0] bg-white">
                       <DialogHeader hidden>
                         <DialogTitle>Sign Up</DialogTitle>
                         <DialogDescription>
