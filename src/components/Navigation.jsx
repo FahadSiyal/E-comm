@@ -49,6 +49,7 @@ const Navbar = () => {
   const openLogin = useSelector((state) => state.dialog.isLoginOpen);
   const dispatch = useDispatch();
   const CartItems = useSelector((state) => state.cart.cartItems);
+  const TotalCartItem = useSelector((state) => state.cart.cartItems.length);
   console.log(CartItems[0]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage mobile menu state
