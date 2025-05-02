@@ -78,7 +78,8 @@ const Navbar = () => {
 
           {/* Mobile Menu Button (Hamburger Icon) */}
           <div className="flex justify-center items-center lg:hidden gap-3">
-            {/* Mobile Menu  */}
+            <div className="none">
+            </div>
             <li className="list-none">
                   <Sheet className="bg-white">
                     <SheetTrigger asChild>
