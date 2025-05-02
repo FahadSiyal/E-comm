@@ -64,6 +64,7 @@ export function LoginForm() {
                  <Input
                      {...register("email")}
                    placeholder="m@example.com"
+                   className={cn("outline-1 outline-black")}
                  
                  />
                  {errors.email && (

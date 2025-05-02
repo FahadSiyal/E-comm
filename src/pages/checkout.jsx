@@ -60,8 +60,8 @@ const Checkout = () => {
     <>
       <section className=" min-h-screen  ">
         <div className="grid lg:grid-cols-2 grid-cols-1 lg:my-0 mb-5  ">
-          <div className="left lg:bg-white bg-none flex-col overflow-y-auto  gap-3 h-auto flex lg:px-16 px-5 lg:tracking-normal tracking-tighter lg:text-base text-sm lg:py-10 py-0 ">
-            <section className=" lg:min-h-screen h-auto lg:py-10 py-2 px-5 lg:px-32 ">
+          <div className="left lg:bg-white bg-none flex-col overflow-y-auto  gap-3 h-auto flex lg:px-16 px-2 lg:tracking-normal tracking-tighter lg:text-base text-sm lg:py-10 py-0 ">
+            <section className=" lg:min-h-screen h-auto lg:py-10 py-2 px-0   ">
               <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-8">
                 <h2 className="text-2xl font-semibold mb-6 text-center">
                   Checkout
@@ -146,12 +146,12 @@ const Checkout = () => {
             </section>
           </div>
 
-          <div className="right  px-10 lg:px-40 mt-10  ">
+          <div className="right  mx-2  rounded-lg lg:mx-20 md:mx-20 mt-10  ">
             <div>
               <h1 className="font-semibold  lg:text-left text-center ">Shopping Cart</h1>
             </div>
             <div className="">
-              <Card className="lg:mt-10 mt-3    h-auto py-1 ">
+              <Card className="lg:mt-10 mt-3 border border-black    h-auto py-1 ">
                 <div className=" w-auto  my-10 mx-5">
                   {/* Upper Content */}
                   <div className="flex lg:flex-row flex-col justify-between  border-black pb-2 ">
