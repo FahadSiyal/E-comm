@@ -155,7 +155,7 @@ const Navbar = () => {
 
                       <SheetFooter>
                         <SheetClose asChild>
-                          <a href="/Checkout">
+                          <Link to="/Checkout">
                             {" "}
                             <Button
                               className="bg-black text-white w-full"
@@ -163,7 +163,7 @@ const Navbar = () => {
                             >
                               <MdShoppingCartCheckout /> Check Out
                             </Button>
-                          </a>
+                          </Link>
                         </SheetClose>
                       </SheetFooter>
                     </SheetContent>

@@ -90,7 +90,7 @@ console.log("changed")
             <div>{/* <h1 className="text-2xl font-bold">Shop</h1> */}</div>
             <div></div>
           </div>
-          <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2   lg:mx-10 gap-4 mt-10">
+          <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 mx-2   lg:mx-10 gap-4 mt-10">
             {Category.map((item, index) => (
               <Link to="/collection">
                 {" "}
