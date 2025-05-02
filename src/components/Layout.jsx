@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation'
 import { Outlet } from 'react-router-dom'
 import Footer from '../components/Footer'
 import ToastNotification from './ToastNotification'
+import ScrollToTop from './ScrollToTop'
 
 
 
@@ -10,6 +11,7 @@ import ToastNotification from './ToastNotification'
 function Layout() {
   return (
     <>
+    <ScrollToTop />
    <ToastNotification />
    <Navigation />
    <Outlet />
