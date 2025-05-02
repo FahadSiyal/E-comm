@@ -313,6 +313,7 @@ const Navbar = () => {
                 {/* Login Form Dialog */}
                 <Dialog
                   open={openLogin}
+                
                   onOpenChange={(openLogin) => dispatch(closeLoginDialog())}
                 >
                   <div className="flex justify-center gap-3 ">
@@ -330,7 +331,7 @@ const Navbar = () => {
                         </span>
                       </button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px] bg-white">
+                    <DialogContent className="sm:max-w-[425px] p-[0] bg-white  ">
                       <DialogHeader hidden>
                         <DialogTitle>Sign Up</DialogTitle>
                         <DialogDescription>
