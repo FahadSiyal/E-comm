@@ -48,6 +48,7 @@ const Shop = () => {
       
       } catch (error) {
  toast.error("Failed to fetch products ❌", error);
+ console.error("Error fetching products:", error);
       }
     };
     fetchProducts();
