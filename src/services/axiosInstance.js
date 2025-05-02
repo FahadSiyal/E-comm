@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create({
-    baseURL: 'https://clothbackend-umber.vercel.app/api',
+    baseURL: 'https://clothingback.vercel.app/api/',
     // baseURL: 'http://localhost:3000/api',
    
 
