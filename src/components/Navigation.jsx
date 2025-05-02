@@ -262,7 +262,7 @@ const Navbar = () => {
                       </SheetHeader>
 
                       {/* Cart items container */}
-                      <div className="flex flex-col gap-1 ">
+                      <div className="flex flex-col gap-1 w-96 overflow-scroll ">
                         {CartItems.map((item, index) => (
                           <Card
                             key={index}
