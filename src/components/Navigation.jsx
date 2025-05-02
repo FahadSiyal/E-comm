@@ -65,40 +65,6 @@ const Navbar = () => {
 
 
 
-  //   useEffect(() => {
-  //     const fetchProducts = async () => {
-  //       try {
-  //         const response = await axiosInstance.get(
-  //           `/products?page=${currentPage}&limit=${itemsPerPage}`
-  //         );
-
-  //         setProducts(response.data.products);
-  //         console.log(response.data.products, "products");
-  //         setTotalPages(response.data.totalPages);
-
-  //       } catch (error) {
-  //  toast.error("Failed to fetch products ❌", error);
-  //       }
-  //     };
-  //     fetchProducts();
-  //   }, [currentPage]);
-
-
-  // useEffect(() => {
-  //   const fetchtoken = async () => {
-  //     try{
-  //       const response = await axiosInstance.get("/login");
-  //       console.log(response.data, "response data");
-
-  //      }
-  //     catch (error) {
-  //       console.error("Error fetching token:", error);
-  //       toast.error("Failed to fetch token ❌", error);
-  //     }
-  //   };
-  //   fetchtoken();
-  // } , []);
-
   useEffect(() => {
     const token = Cookies.get("token");
     console.log("token" + token);
@@ -289,14 +255,7 @@ const Navbar = () => {
                         variant="outline"
                         className="border-transparent flex items-center space-x-2"
                       >
-                        <div className="relative">
-                          <FaShoppingCart />
-                          {totalCartItems > 0 && (
-                            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                              {totalCartItems}
-                            </span>
-                          )}
-                        </div>
+                         
 
                         <span>Cart</span>
                       </Button>
@@ -404,6 +363,8 @@ const Navbar = () => {
                         variant="outline"
                         className="border-transparent flex items-center space-x-2"
                       >
+
+                        {/* //counter */}
                         <div className="relative">
                           <FaShoppingCart />
                           {totalCartItems > 0 && (
