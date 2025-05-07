@@ -38,6 +38,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        console.log("Fetching products again...");
         const response = await axiosInstance.get(
           `/products?page=${currentPage}&limit=${itemsPerPage}`
         );
@@ -48,6 +49,7 @@ const Shop = () => {
       
       } catch (error) {
  toast.error("Failed to fetch products ❌", error);
+ console.error("Error fetching products:", error);
       }
     };
     fetchProducts();
