@@ -107,7 +107,7 @@ const Navbar = () => {
                   </Button>
                 </SheetTrigger>
 
-                <SheetContent className=" transition-transform duration-300 ease-in-out transform">
+                <SheetContent className=" bg-white transition-transform duration-300 ease-in-out transform">
                   <SheetHeader>
                     <SheetTitle>Add To Cart</SheetTitle>
                     <SheetDescription>
