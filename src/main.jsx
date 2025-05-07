@@ -15,7 +15,7 @@ import Products from "./pages/products";
 import Orders from "./pages/orders";
 import Shop from './pages/shop'
 import ProductDesc from './pages/productDesc'
-
+import MarketPlace from './pages/marketplace'
 import { store } from "./redux/store";
 import Checkout from "./pages/checkout";
 import Collection from "./pages/collection";
@@ -32,6 +32,8 @@ const router = createBrowserRouter(
         <Route path="contact" element={<Contact />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/productdesc" element={<ProductDesc />} />
+        <Route path="/marketplace" element={<MarketPlace />} />
+
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/collection" element={<Collection />} />
         {/* <Route path="/menu" element={<Menu />} />

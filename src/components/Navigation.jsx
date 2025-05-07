@@ -86,7 +86,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <h1 className="text-black lg:text-3xl md:text-3xl text-lg font-bold ">
-              Store Name
+              mera brand
             </h1>
           </Link>
 
@@ -159,7 +159,7 @@ const Navbar = () => {
                                 onClick={() => {
                                   dispatch(deleteFromCart(item));
                                 }}
-                                className="hover:text-red-600 cursor-pointer text-lg"
+                                className="hover:text-red-500 cursor-pointer text-lg"
                               >
                                 <MdDelete />
                               </div>
@@ -238,7 +238,7 @@ const Navbar = () => {
                         <div className="relative">
                           <FaShoppingCart />
                           {totalCartItems > 0 && (
-                            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                               {totalCartItems}
                             </span>
                           )}
