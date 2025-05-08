@@ -282,7 +282,7 @@ function Home() {
                 <div
                   className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
                   style={{
-                    backgroundImage: `url(./children-sample.jpg)`,
+                    backgroundImage: `url(./ball.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -343,149 +343,12 @@ function Home() {
 
         {/* Featued Products */}
 
-        {/*Categories Section */}
-        <div className=" bg-white p-10 md:p-20">
-          <div className="flex flex-col md:flex-row items-center mx-5 md:mx-10">
-            <div className="w-full md:w-full justify-center p-6 text-center md:text-left">
-              <h3 className="text-center text-red-500 font-bold mt-6 text-lg md:text-xl">
-                Customer Favorites
-              </h3>
-              <h1 className="text-center pb-10 text-2xl md:text-4xl font-bold mt-5">
-                Our Collections
-              </h1>
-              <div className="">
-                <Link
-                  to={"shop"}
-                  className="flex flex-wrap justify-center md:justify-start gap-6 mt-5"
-                >
-                  {[
-                    { name: "Men", img: "./men-1.jpg" },
-                    { name: "Women", img: "./women.jpg" },
-                    { name: "Childrens", img: "./children-sample.jpg" },
-                  ].map((dish, index) => (
-                    <Card
-                      key={index}
-                      className="w-full sm:w-80 justify-center mx-auto py-0"
-                    >
-                      <div className="relative w-full h-76   overflow-hidden rounded-lg">
-                        <img
-                          src={dish.img}
-                          alt=""
-                          className="w-full h-full object-cover"
-                        />
+      
 
-                        <div className="absolute bottom-2 left-2 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-md">
-                          <CardTitle>
-                            <h2 className="text-sm md:text-base font-bold text-slate-800">
-                              {dish.name}
-                            </h2>
-                          </CardTitle>
-                        </div>
-                      </div>
-
-                      {/* <CardHeader className='bg-white'>
-                    <img src={dish.img} alt={dish.name} className='bg-blue-200  w-20 flex m-auto  object-cover rounded-3xl mt-2' />
-                    {/* <CardDescription className='text-sm md:text-base mt-3 flex justify-center'>
-                      {dish.desc}
-                    </CardDescription> */}
-
-                      {/* </CardHeader> */}
-                    </Card>
-                  ))}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/*Dishes Section */}
-        <div className="p-10 md:p-20 sm:p-10 mx-auto">
-          <div className="flex flex-col md:flex-row items-center mx-10 md:mx-10 w-full mx-auto">
-            <div className="flex flex-col md:w-full justify-center text-center md:text-left">
-              <h3 className="text-center text-red-500 font-bold mt-6 text-lg md:text-xl">
-                Featured Products
-              </h3>
-              <h1 className="text-center text-2xl md:text-4xl font-bold mt-5">
-                Best Seller Product
-              </h1>
-              <p className="text-center">
-                Problems trying to resolve the conflict between
-              </p>
-
-              <Link to={"menu"}>
-                <div className="flex lg:flex-nowrap md:flex-nowrap flex-wrap w-full mx-auto md:justify-start gap-10 mt-10 lg:px-0 px-8">
-                  {[
-                    {
-                      desc: "Timeless, versatile, and effortlessly cool — this denim jacket is your go-to layer for every season. Dress it up or keep it casual, its a staple that never goes out of style.",
-                      price: 24,
-                      rating: 4.2,
-                      img: "./men-sample.jpg",
-                    },
-                    {
-                      desc: "Soft, breathable, and built for comfort — our premium cotton tee fits just right and feels even better. A wardrobe essential, now in your favorite everyday colors.",
-                      price: 27,
-                      rating: 4.9,
-                      img: "./women.jpg",
-                    },
-                    {
-                      desc: "Elegant flow meets everyday ease. This maxi dress drapes beautifully and moves with you — perfect for brunch dates, beach walks, or just turning heads wherever you go.",
-                      price: 17,
-                      rating: 4.9,
-                      img: "./children-sample.jpg",
-                    },
-                    {
-                      desc: "Soft, breathable, and built for comfort — our premium cotton tee fits just right and feels even better. A wardrobe essential, now in your favorite everyday colors.",
-                      price: 31,
-                      rating: 4.5,
-                      img: "./women-1.jpg",
-                    },
-                  ].map((dish, index) => (
-                    <div
-                      key={index}
-                      className="sm:w-80 flex flex-col justify-between mx-auto bg-white shadow-lg rounded-lg"
-                    >
-                      <div className="p-0">
-                        <div className="relative w-full h-50 overflow-hidden rounded-t-lg">
-                          <img
-                            src={dish.img}
-                            alt={dish.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="flex-1 px-6 pt-4">
-                        <p className="text-sm md:text-base lg:line-clamp-none md:line-clamp-4 line-clamp-2 ">
-                          {dish.desc}
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between w-full px-6 pb-4 pt-2 mt-auto">
-                        <div className="font-bold text-lg">
-                          <span className="text-red-600">$</span>{" "}
-                          {dish.price.toFixed(2)}
-                        </div>
-                        <div className="flex items-center">
-                          <span className="mr-1">{dish.rating}</span>
-                          <img
-                            src="./star.png"
-                            alt="star"
-                            className="w-5 h-5"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* {Till} */}
+       
 
         {/* Banner Section */}
-        <div className="relative h-64 flex justify-center items-center text-center bg-black tracking-widest">
+        <div className="relative max-w-7xl mx-auto rounded-lg my-10 h-96 flex justify-center items-center text-center bg-black tracking-widest">
           {/* Background Image */}
           <img
             src="./women.jpg"
