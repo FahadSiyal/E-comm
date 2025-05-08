@@ -49,7 +49,7 @@ function Home() {
                       <div className="relative w-full h-full flex justify-center items-center text-center bg-black tracking-widest">
                         {/* Background Image */}
                         <img
-                          src="./banner.jpg"
+                          src="./banner-1.jpg"
                           alt="Background"
                           className="absolute inset-0 w-full h-full opacity-90 object-cover"
                         />
