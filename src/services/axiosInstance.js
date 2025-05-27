@@ -1,11 +1,13 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create({
-    // baseURL: 'https://cloth-backend-pwni.vercel.app/api',
+    // baseURL: 'https://cloth-backend-kxf1.vercel.app/api',
     baseURL: 'http://localhost:3000/api',
+    baseURL: 'https://cloth-backend-pwni.vercel.app/api',
+    // baseURL: 'https://ecomcloth1.netlify.app/shop',
    
 
-    withCredentials: true,
+    withCredentials: false,
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -13,3 +15,6 @@ const axiosInstance = axios.create({
 })
 
 export default axiosInstance;
+
+
+// https://clothbackend-umber.vercel.app/api
