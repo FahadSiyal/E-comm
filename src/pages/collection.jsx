@@ -100,73 +100,73 @@ console.log(category, "category")
               Collection
             </h1>
           </div>
-           <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  lg:mx-10 mx-2  gap-4 mt-10 ">
-                    {products?.map((product) => (
-                      <Card
-                        key={product._id}
-                        className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex  lg:h-88 md:h-88 h-66 flex-col gap-7 "
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  mx-10 gap-4 mt-10 ">
+          {products?.map((product) => (
+              <Card
+                key={product._id}
+                className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex  lg:h-88 md:h-88 h-66 flex-col gap-7 "
+                onClick={() => {
+                  console.log(product._id);
+                }}
+              >
+                <div
+                  className=" h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                  style={{
+                    backgroundImage: categoryName === 'shoes'
+                      ? `url(./shoe.jpg)`
+                      : categoryName === 'Cloths'
+                      ? `url(./cloths.jpg)`
+                      : categoryName === 'Accessories'
+                      ? `url(./mobile.jpg)`
+                      : categoryName === 'Electronics'
+                      ? `url(./computer.jpg)`
+                      : `url(./children-sample.jpg)`,  // Default image
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div>
+                    <button className="text-xs bg-green-200 p-[4px] rounded-lg">
+                      30% off
+                    </button>
+                  </div>
+                </div>
+                <div className="lg:text-left  px-3 flex flex-col  lg:gap-7 gap-5  pb-3 ">
+                  <div>
+                    <div className="text-md font-semibold">{product.name}</div>
+                    <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500  overflow-hidden text-ellipsis">
+                      {product.desc}
+                    </div>
+                  </div>
+                  <div className="flex justify-between lg:flex-row  items-center">
+
+                    <div className="text-md ">
+                      <span className="line-through decoration-red-500 text-red-800 text-xs">
+                      ${product.price}
+                      </span>{" "}
+                      <span className="font-bold lg:text-lg text-xs ">
+                      ${product.actualprice}
+                        
+                      </span>
+                    </div>
+                    <div>
+                      <Button
+                        className=" text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg md:rounded-lg  "
+                        // onClick={() => handleAddToCart(product)}
                         onClick={() => {
-                          console.log(product._id);
+                          console.log("Trying to add", product._id);
+                          dispatch(addToCart(product));
                         }}
                       >
-                        <div
-                          className=" h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
-                          style={{
-                            backgroundImage: categoryName === 'shoes'
-                              ? `url(./shoe.jpg)`
-                              : categoryName === 'Cloths'
-                              ? `url(./cloths.jpg)`
-                              : categoryName === 'Accessories'
-                              ? `url(./mobile.jpg)`
-                              : categoryName === 'Electronics'
-                              ? `url(./computer.jpg)`
-                              : `url(./children-sample.jpg)`,  // Default image
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                          }}
-                        >
-                          <div>
-                            <button className="text-xs bg-green-200 p-[4px] rounded-lg">
-                              30% off
-                            </button>
-                          </div>
-                        </div>
-                        <div className="lg:text-left  px-3 flex flex-col  lg:gap-7 gap-5  pb-3 ">
-                          <div>
-                            <div className="text-md font-semibold">{product.name}</div>
-                            <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500  overflow-hidden text-ellipsis">
-                              {product.desc}
-                            </div>
-                          </div>
-                          <div className="flex justify-between lg:flex-row  items-center">
-        
-                            <div className="text-md ">
-                              <span className="line-through decoration-red-500 text-red-800 text-xs">
-                              ${product.price}
-                              </span>{" "}
-                              <span className="font-bold lg:text-lg text-xs ">
-                              ${product.actualprice}
-                                
-                              </span>
-                            </div>
-                            <div>
-                              <Button
-                                className=" text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg md:rounded-lg  "
-                                // onClick={() => handleAddToCart(product)}
-                                onClick={() => {
-                                  console.log("Trying to add", product._id);
-                                  dispatch(addToCart(product));
-                                }}
-                              >
-                                <FaCartArrowDown  />
-                                <span className="ml-2 hidden sm:inline">Add To Cart</span>
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
+                        <FaCartArrowDown  />
+                        <span className="ml-2 hidden sm:inline">Add To Cart</span>
+                      </Button>
+                    </div>
                   </div>
+                </div>
+              </Card>
+            ))}
+          </div>
           <div>
             <Pagination className="cursor-pointer my-5">
               <PaginationContent>

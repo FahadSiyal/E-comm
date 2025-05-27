@@ -3,7 +3,7 @@ import {Link , NavLink} from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 p-10 bottom-0">
+    <footer className="bg-gray-800 px-10 py-10 rounded-lg bottom-0 h-auto max-w-7xl mx-auto">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-gray-200">
        
         <div>

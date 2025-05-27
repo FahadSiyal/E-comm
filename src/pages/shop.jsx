@@ -38,6 +38,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        console.log("Fetching products again...");
         const response = await axiosInstance.get(
           `/products?page=${currentPage}&limit=${itemsPerPage}`
         );
@@ -45,17 +46,15 @@ const Shop = () => {
         setProducts(response.data.products);
         console.log(response.data.products, "products");
         setTotalPages(response.data.totalPages);
-      
       } catch (error) {
- toast.error("Failed to fetch products ❌", error);
+        toast.error("Failed to fetch products ❌", error);
+        console.error("Error fetching products:", error);
       }
     };
     fetchProducts();
   }, [currentPage]);
 
-console.log("changed")
-  
-
+  console.log("changed");
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -151,7 +150,6 @@ console.log("changed")
                     backgroundImage: `url(./children-sample.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                 
                   }}
                 >
                   <div>
@@ -168,14 +166,12 @@ console.log("changed")
                     </div>
                   </div>
                   <div className="flex justify-between lg:flex-row  items-center">
-
                     <div className="text-md ">
                       <span className="line-through decoration-red-500 text-red-800 text-xs">
-                      ${product.price}
+                        ${product.price}
                       </span>{" "}
                       <span className="font-bold lg:text-lg text-xs ">
-                      ${product.actualprice}
-                        
+                        ${product.actualprice}
                       </span>
                     </div>
                     <div>
@@ -187,8 +183,10 @@ console.log("changed")
                           dispatch(addToCart(product));
                         }}
                       >
-                        <FaCartArrowDown  />
-                        <span className="ml-2 hidden sm:inline">Add To Cart</span>
+                        <FaCartArrowDown />
+                        <span className="ml-2 hidden sm:inline">
+                          Add To Cart
+                        </span>
                       </Button>
                     </div>
                   </div>
