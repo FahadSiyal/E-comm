@@ -22,6 +22,7 @@ import Collection from "./pages/collection";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
+import Seller from "./components/seller";
 // Define router
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,10 +37,14 @@ const router = createBrowserRouter(
 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/collection" element={<Collection />} />
+
+  
         {/* <Route path="/menu" element={<Menu />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart/>} /> */}
       </Route>
+     
+        <Route path="/seller" element={<Seller />} />
 
       <Route path="/wp-admin" element={<LayoutSidebar />}>
         <Route path="" element={<Dashboard />} />
@@ -47,6 +52,7 @@ const router = createBrowserRouter(
         <Route path="products" element={<Products />} />
         <Route path="orders" element={<Orders />} />
       </Route>
+      
     </Route>
   )
 );
@@ -54,7 +60,7 @@ const router = createBrowserRouter(
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <StrictMode>
-      <RouterProvider router={router} />-
+      <RouterProvider router={router} />
     </StrictMode>
   </Provider>
 );

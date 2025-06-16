@@ -13,6 +13,8 @@ import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "@/features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import { FaCartArrowDown } from "react-icons/fa6";
+import { deleteCategory,addCategory } from "../features/category/categorySlice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 import {
@@ -27,24 +29,20 @@ import axiosInstance from "../services/axiosInstance";
 
 import { Link, NavLink } from "react-router-dom";
 function Home() {
-  const categories = [
-    "Electronics",
-    "Clothing",
-    "Home",
-    "Beauty",
-    "Sports",
-    "Books",
-    "Toys",
-    "Garden",
-    "Shoes",
-    "Watches",
-    "Mobile",
-    "Laptops",
-    "Cameras",
-    "Health",
-    "Jewelry",
-    "Accessories",
-  ];
+  const [categories, setCategory] = useState([
+    { name: "Cloths", items: 5, img: "./men-sample.jpg" },
+    { name: "shoes", items: 10, img: "./children-sample.jpg" },
+    { name: "Accessories", items: 15, img: "./women-1.jpg" },
+    { name: "shoes", items: 10, img: "./children-sample.jpg" },
+    { name: "Accessories", items: 15, img: "./women-1.jpg" },
+    { name: "shoes", items: 10, img: "./children-sample.jpg" },
+    { name: "Accessories", items: 15, img: "./women-1.jpg" },
+    { name: "shoes", items: 10, img: "./children-sample.jpg" },
+    { name: "Accessories", items: 15, img: "./women-1.jpg" },
+    { name: "Accessories", items: 15, img: "./women-1.jpg" },
+    { name: "Electronics", items: 20, img: "./men-sample.jpg" },
+    { name: "Home Appliances", items: 25, img: "./children-sample.jpg" },
+  ]);
   const banner = [
     {
       img: "./banner.jpg",
@@ -79,7 +77,7 @@ function Home() {
     };
     fetchProducts();
   }, [currentPage]);
-  const  dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -87,7 +85,7 @@ function Home() {
 
   const handleCategory = (e, item) => {
     e.preventDefault(); // Prevent default link behavior
-    dispatch(deleteCategory(item));
+    dispatch(deleteCategory(item.name));
     navigate("/collection"); // Navigate to the collection page
 
     dispatch(addCategory(item.name)); // Dispatch the category to the Redux store
@@ -108,6 +106,8 @@ function Home() {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+const navigate=useNavigate()
+
   return (
     <>
       <section className="bg-white">
@@ -153,18 +153,26 @@ function Home() {
           <div className="relative w-full">
             <Carousel opts={{ align: "start" }} className="w-full">
               <CarouselContent>
-                {categories.map((name, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="basis-2/7 sm:basis-1/7 md:basis-1/7 lg:basis-1/8 xl:basis-1/8 2xl:basis-[10%]"
-                  >
-                    <div className="p-1">
-                      <Card className="flex justify-center  lg:h-24  h-18 p-0 overflow-hidden bg-[url('./categories.jpg')] bg-center bg-cover"></Card>
-                      <div className="mt-2 text-center text-sm font-medium text-gray-700">
-                        {name}
+                {categories.map((category, index) => (
+                  <Link to="/collection">
+                    <CarouselItem
+                      onClick={(e) => handleCategory(e, category)}
+
+                      key={index}
+                      className="basis-2/7 sm:basis-1/7 md:basis-1/7 lg:basis-1/8 xl:basis-1/8 2xl:basis-[10%] w-32"
+
+                    >
+                      <div className="p-1">
+                        <Card
+                          className="flex justify-center lg:h-24 h-18 p-0 overflow-hidden bg-center bg-cover"
+                          style={{ backgroundImage: `url(${category.img})` }}
+                        ></Card>
+                        <div className="mt-2 text-center text-sm font-medium text-gray-700">
+                          {category.name}
+                        </div>
                       </div>
-                    </div>
-                  </CarouselItem>
+                    </CarouselItem>
+                  </Link>
                 ))}
               </CarouselContent>
 
@@ -257,95 +265,95 @@ function Home() {
         {/* Shops */}
         {/* Featured Products */}
         <div className="flex flex-col justify-center mt-10 max-w-7xl lg:mx-auto md:mx-10 mx-3 gap-3 overflow-hidden">
-  <div className="flex justify-between items-center">
-    <span>
-      <h1 className="font-bold text-md">Featured Products</h1>
-    </span>
-  </div>
+          <div className="flex justify-between items-center">
+            <span>
+              <h1 className="font-bold text-md">Featured Products</h1>
+            </span>
+          </div>
 
-  {/* 👇 Make this container relative */}
-  <div className="relative w-full">
-    <Card className="bg-gray-50 py-0">
-    <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
-      <CarouselContent>
-        {products?.map((product, index) => (
-          <CarouselItem
-            key={index}
-            className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
-          >
-            <div className="p-1">
-              <Card
-                key={product._id}
-                className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7"
-                onClick={() => console.log(product._id)}
-              >
-                <div
-                  className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
-                  style={{
-                    backgroundImage: `url(./ball.jpg)`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div>
-                    <button className="text-xs bg-green-200 p-[4px] rounded-lg">
-                      30% off
-                    </button>
-                  </div>
-                </div>
-                <div className="lg:text-left px-3 flex flex-col lg:gap-7 gap-5 pb-3">
-                  <div>
-                    <div className="text-md font-semibold">
-                      {product.name}
-                    </div>
-                    <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500 overflow-hidden text-ellipsis">
-                      {product.desc}
-                    </div>
-                  </div>
-                  <div className="flex justify-between lg:flex-row items-center">
-                    <div className="text-md">
-                      <span className="line-through decoration-red-500 text-red-800 text-xs">
-                        ${product.price}
-                      </span>{" "}
-                      <span className="font-bold lg:text-lg text-xs">
-                        ${product.actualprice}
-                      </span>
-                    </div>
-                    <div>
-                      <Button
-                        className="text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg"
-                        onClick={() => {
-                          console.log("Trying to add", product._id);
-                          dispatch(addToCart(product));
-                        }}
-                      >
-                        <FaCartArrowDown />
-                        <span className="ml-2 hidden sm:inline">
-                          Add To Cart
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
+          {/* 👇 Make this container relative */}
+          <div className="relative w-full">
+            <Card className="bg-gray-50 py-0">
+              <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
+                <CarouselContent>
+                  {products?.map((product, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
+                    >
+                      <div className="p-1">
+                        <Card
+                          key={product._id}
+                          className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7"
+                          onClick={() => console.log(product._id)}
+                        >
+                          <div
+                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                            style={{
+                              backgroundImage: `url(./ball.jpg)`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }}
+                          >
+                            <div>
+                              <button className="text-xs bg-green-200 p-[4px] rounded-lg">
+                                30% off
+                              </button>
+                            </div>
+                          </div>
+                          <div className="lg:text-left px-3 flex flex-col lg:gap-7 gap-5 pb-3">
+                            <div>
+                              <div className="text-md font-semibold">
+                                {product.name}
+                              </div>
+                              <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500 overflow-hidden text-ellipsis">
+                                {product.desc}
+                              </div>
+                            </div>
+                            <div className="flex justify-between lg:flex-row items-center">
+                              <div className="text-md">
+                                <span className="line-through decoration-red-500 text-red-800 text-xs">
+                                  ${product.price}
+                                </span>{" "}
+                                <span className="font-bold lg:text-lg text-xs">
+                                  ${product.actualprice}
+                                </span>
+                              </div>
+                              <div>
+                                <Button
+                                  className="text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg"
+                                  onClick={() => {
+                                    console.log("Trying to add", product._id);
+                                    dispatch(addToCart(product));
+                                  }}
+                                >
+                                  <FaCartArrowDown />
+                                  <span className="ml-2 hidden sm:inline">
+                                    Add To Cart
+                                  </span>
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
 
-      {/* 👇 Carousel Controls */}
-      <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
-      <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
-    </Carousel>
-    </Card>
-  </div>
-</div>
+                {/* 👇 Carousel Controls */}
+                <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+                <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+              </Carousel>
+            </Card>
+          </div>
+        </div>
 
         {/* Featued Products */}
 
-      
 
-       
+
+
 
         {/* Banner Section */}
         <div className="relative max-w-7xl mx-auto rounded-lg my-10 h-96 flex justify-center items-center text-center bg-black tracking-widest">

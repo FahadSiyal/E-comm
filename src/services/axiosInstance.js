@@ -5,9 +5,7 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:3000/api',
     // baseURL: 'https://cloth-backend-pwni.vercel.app/api',
     // baseURL: 'https://ecomcloth1.netlify.app/shop',
-   
-
-    withCredentials: false,
+    withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
