@@ -5,6 +5,9 @@ import "./index.css";
 import { createRoutesFromElements, Route, Router } from "react-router-dom";
 import Layout from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ShopDetails from "./pages/shopDetails";
+import BussinessDetails from "./pages/bussinessDetails";
+import BankingDetails from "./pages/bankingDetails";
 
 import { Provider } from "react-redux";
 
@@ -22,7 +25,7 @@ import Collection from "./pages/collection";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
-import Seller from "./components/seller";
+import Seller from "./pages/seller";
 // Define router
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +48,10 @@ const router = createBrowserRouter(
       </Route>
      
         <Route path="/seller" element={<Seller />} />
+        <Route path="/shopdetails" element={<ShopDetails />} />
+        <Route path="/bussinessdetails" element={<BussinessDetails />} />
+        <Route path="/bankingdetails" element={<BankingDetails />} />
+
 
       <Route path="/wp-admin" element={<LayoutSidebar />}>
         <Route path="" element={<Dashboard />} />

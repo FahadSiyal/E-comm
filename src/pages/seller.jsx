@@ -12,6 +12,7 @@ import { BsClipboardCheck } from "react-icons/bs";
 import { FaUserPlus, FaAddressCard, FaWallet, FaBoxOpen } from "react-icons/fa";
 import { FiUserCheck } from "react-icons/fi";
 import { BiSolidUser } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 const seller = () => {
     const features = [
@@ -78,11 +79,12 @@ const seller = () => {
         <section className=''>
 
             <div className='bg-red-500 h-96 w-full text-center flex items-center justify-center flex-col gap-5'>
-<h1 className='font-bold text-6xl text-white'>Become A Mera Brand Seller</h1>
-<button className='bg-white font-bold text-red-500 px-5 py-4 rounded-lg mt-7'>Start Selling</button>
+<h1 className='font-bold text-3xl md:text-6xl text-white'>Become A Mera Brand Seller</h1>
+<Link to={'/shopDetails'} >
+<button className='bg-white font-bold text-red-500 px-3 lg:px-5 py-2 lg:py-4 rounded-lg mt-7'>Start Selling</button></Link>
             </div>
 
-            <div className='flex flex-col max-w-7xl mx-auto '>
+            <div className='flex flex-col max-w-7xl lg:mx-auto mx-7 '>
                 <h2 className="text-3xl md:text-4xl font-bold my-10 mb-10">
                     Why Sell on Mera Brand?
                 </h2>
@@ -99,7 +101,7 @@ const seller = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col my-20 max-w-7xl mx-auto 
+            <div className='flex flex-col my-20 max-w-7xl lg:mx-auto mx-7
             '>
                 <h2 className="text-3xl md:text-4xl font-bold mb-12">
                     5 Simple Steps to Start Selling
@@ -115,7 +117,7 @@ const seller = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col max-w-7xl mx-auto  my-20 '><Accordion
+            <div className='flex flex-col max-w-7xl lg:mx-auto mx-7 my-20 '><Accordion
                 type="single"
                 collapsible
                 className="w-full"
@@ -123,7 +125,7 @@ const seller = () => {
             >
                 <h1 className='font-bold text-3xl py-5'>Frequently asked Questions</h1>
                 <AccordionItem value="item-1">
-                    <AccordionTrigger className="bg-gray-200 px-2" >Product Information</AccordionTrigger>
+                    <AccordionTrigger className=" px-2" >Product Information</AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-4 text-balance px-2 py-4">
                         <p>
                             Our flagship product combines cutting-edge technology with sleek
@@ -137,7 +139,7 @@ const seller = () => {
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
-                    <AccordionTrigger className="bg-gray-200 px-2">Shipping Details</AccordionTrigger>
+                    <AccordionTrigger className=" px-2">Shipping Details</AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-4 text-balance px-2 py-4">
                         <p>
                             We offer worldwide shipping through trusted courier partners.
@@ -151,7 +153,7 @@ const seller = () => {
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
-                    <AccordionTrigger className="bg-gray-200 px-2">Return Policy</AccordionTrigger>
+                    <AccordionTrigger className=" px-2">Return Policy</AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-4 text-balance px-2 py-4">
                         <p>
                             We stand behind our products with a comprehensive 30-day return
