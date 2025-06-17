@@ -13,6 +13,7 @@ import { FaUserPlus, FaAddressCard, FaWallet, FaBoxOpen } from "react-icons/fa";
 import { FiUserCheck } from "react-icons/fi";
 import { BiSolidUser } from "react-icons/bi";
 import { Link } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 
 const seller = () => {
     const features = [
@@ -77,6 +78,7 @@ const seller = () => {
 
     return (
         <section className=''>
+              <ScrollToTop />
 
             <div className='bg-red-500 h-96 w-full text-center flex items-center justify-center flex-col gap-5'>
 <h1 className='font-bold text-3xl md:text-6xl text-white'>Become A Mera Brand Seller</h1>

@@ -26,10 +26,12 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Seller from "./pages/seller";
+import ScrollToTop from "./components/ScrollToTop";
 // Define router
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
@@ -67,6 +69,7 @@ const router = createBrowserRouter(
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <StrictMode>
+
       <RouterProvider router={router} />
     </StrictMode>
   </Provider>
