@@ -48,7 +48,7 @@ const shopDetails = () => {
         <div className="Top text-gray-500">Step 1 of 4</div>
         <div className="font-bold max-w-2xl flex flex-col gap-5">
           <h1 className="text-3xl lg:text-4xl  lg:tracking-normal">
-            How would you describe your company to the world?
+            Shop Details
           </h1>
         </div>
         <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>

@@ -33,7 +33,7 @@ const bussinessDetails = () => {
         <div className="font-bold  max-w-2xl flex flex-col gap-5">
           <h1 className=" text-3xl lg:text-4xl">
             {" "}
-            How can customers can reach your company?
+    Bussiness Details
           </h1>
 
     
