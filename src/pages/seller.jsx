@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { Card } from "../components/ui/card";
 import ScrollToTop from "../components/ScrollToTop";
 import { Input } from "../components/ui/input";
+import {Button} from '../components/ui/button'
 
 const seller = () => {
   const features = [
@@ -83,7 +84,7 @@ const seller = () => {
       <ScrollToTop />
 
       <div className="bg-red-500 h-auto py-20 w-full   text-left flex items-center   justify-between   gap-5">
-        <div className=" flex justify-between gap-20 w-full max-w-7xl mx-auto items-center ">
+        <div className=" flex justify-between  gap-20 w-full max-w-7xl mx-auto items-center ">
           <div className="">
             <h1 className="font-bold text-3xl md:text-6xl text-white max-w-xl">
               Become A Mera Brand Seller
@@ -95,14 +96,16 @@ const seller = () => {
             </Link>
           </div>
           <div>
-            <Card className="bg-white flex flex-col px-5 h-96 w-96">
+            <Card className="bg-white flex flex-col px-5 h-96 w-96 justify-center">
               <div>
                 <h1 className="text-2xl font-bold">Login</h1>
               </div>
-              <div>
+              <div className="space-y-3">
                 <Input placeHolder="Enter Your Email" className={'w-full'} />
-                <Input placeHolder="Enter Your Email" className={'w-full'} />
+                <Input placeHolder="Enter Your Password" className={'w-full'} />
+       
               </div>
+              <div className="flex items-end mt-10" > <Button  className="lg:w-36 text-white bg-red-500 flex ">Next</Button></div>
             </Card>
           </div>
         </div>

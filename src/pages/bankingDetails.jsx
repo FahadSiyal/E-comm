@@ -33,7 +33,7 @@ const BankingDetails = () => {
   return (
     <section className="w-full my-10 lg:my-40 flex justify-center">
       <div className="container max-w-full mx-auto flex flex-col gap-4 px-4 lg:px-32">
-        <div className="text-gray-500">Step 3 of 4</div>
+        <div className="text-gray-500">Step 3 of 3</div>
         <div className="font-bold max-w-2xl flex flex-col gap-5">
           <h1 className="text-3xl lg:text-4xl">Banking Details</h1>
           <p className="text-gray-600 text-sm font-normal">

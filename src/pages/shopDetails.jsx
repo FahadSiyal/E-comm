@@ -45,7 +45,7 @@ const shopDetails = () => {
   return (
  <section className="w-full my-10 lg:my-40 flex justify-center align-baseline">
       <div className="container max-w-full mx-auto my-auto flex flex-col justify-start gap-4 px-4 lg:px-32">
-        <div className="Top text-gray-500">Step 1 of 4</div>
+        <div className="Top text-gray-500">Step 1 of 3</div>
         <div className="font-bold max-w-2xl flex flex-col gap-5">
           <h1 className="text-3xl lg:text-4xl  lg:tracking-normal">
             Shop Details

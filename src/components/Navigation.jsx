@@ -222,7 +222,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink to="/seller" className="">
-                 <button className="border bg-green-500 text-white px-4 p-2 rounded-lg">Be a seller</button>
+                 <button className="border bg-red-500 text-white px-4 p-2 rounded-lg">Be a seller</button>
                 </NavLink>
               </li>
              
