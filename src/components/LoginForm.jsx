@@ -37,7 +37,7 @@ export function LoginForm() {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post("/auth/login", data);
-      console.log("Logged in:", data);
+      console.log("Logged in:", response.data.token);
       reset();
       toast.success("Logged in successfully!");
       dispatch(closeLoginDialog());
@@ -68,7 +68,7 @@ export function LoginForm() {
             <Input
               {...register("email")}
               placeholder="m@example.com"
-              className="outline outline-1 outline-black text-sm"
+              className=" outline-1 outline-black text-sm"
             />
             {errors.email && (
               <p className="text-red-500 text-xs">{errors.email.message}</p>

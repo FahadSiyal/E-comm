@@ -11,7 +11,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { LayoutDashboardIcon, ListIcon, FolderIcon, UsersIcon } from "lucide-react";
+import {
+  LayoutDashboardIcon,
+  ListIcon,
+  FolderIcon,
+  UsersIcon,
+} from "lucide-react";
 
 import {
   Sheet,
@@ -20,7 +25,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
 
 import {
   DropdownMenu,
@@ -29,9 +34,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
-
+} from "@/components/ui/dropdown-menu";
 
 const data = {
   user: {
@@ -45,8 +48,6 @@ const data = {
       title: "Dashboard",
       url: "/wp-admin",
       icon: LayoutDashboardIcon,
-      
-      
     },
     {
       title: "Orders",
@@ -112,52 +113,48 @@ export function AppSidebar(props) {
           </SidebarFooter>
         </Sidebar>
       )}
-{isMobile && (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md px-4 py-3 flex items-center justify-between md:hidden">
-  <div className="flex items-center gap-2">
-    <img
-      src="./sample shirt.jpg"
-      alt="avatar"
-      className="h-8 w-8 rounded-full"
-    />
-    <span className="font-semibold text-red-600">Store Name</span>
-  </div>
+      {isMobile && (
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md px-4 py-3 flex items-center justify-between md:hidden">
+          <div className="flex items-center gap-2">
+            <img
+              src="./sample shirt.jpg"
+              alt="avatar"
+              className="h-8 w-8 rounded-full"
+            />
+            <span className="font-semibold text-red-600">Store Name</span>
+          </div>
 
-  <div className="ml-auto">
-    <Sheet>
-      <SheetTrigger asChild>
-        <button className="p-2 rounded-md hover:bg-gray-100">
-          <span className="text-2xl font-bold">⋮</span>
-        </button>
-      </SheetTrigger>
+          <div className="ml-auto">
+            <Sheet>
+              <SheetTrigger asChild>
+                <button className="p-2 rounded-md hover:bg-gray-100">
+                  <span className="text-2xl font-bold">⋮</span>
+                </button>
+              </SheetTrigger>
 
-      <SheetContent side="right" className="w-64 p-4">
-        <SheetHeader>
-          <h2 className="text-lg font-semibold ">Store</h2>
-        </SheetHeader>
+              <SheetContent side="right" className="w-64 p-4">
+                <SheetHeader>
+                  <h2 className="text-lg font-semibold ">Store</h2>
+                </SheetHeader>
 
-        <SidebarContent>
-          <NavMain items={data.navMain} />
-        </SidebarContent>
+                <SidebarContent>
+                  <NavMain items={data.navMain} />
+                </SidebarContent>
 
-        {/* Logout Route */}
-        <div className="mt-6 border-t pt-4">
-          <a
-            href="/logout"
-            className="block text-red-600 font-medium hover:underline"
-          >
-            Logout
-          </a>
-        </div>
-      </SheetContent>
-    </Sheet>
-  </div>
-</nav>
-
-
-)}
-
-
+                {/* Logout Route */}
+                <div className="mt-6 border-t pt-4">
+                  <a
+                    href="/logout"
+                    className="block text-red-600 font-medium hover:underline"
+                  >
+                    Logout
+                  </a>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </nav>
+      )}
     </>
   );
 }
