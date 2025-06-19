@@ -98,6 +98,7 @@ export const customerReachSchema = z.object({
     .trim()
     .nonempty({ message: "Email cannot be empty" })
     .email("Invalid email address"),
+
   phone: z
     .string({ required_error: "Phone number is required" })
     .trim()
@@ -106,8 +107,12 @@ export const customerReachSchema = z.object({
       message:
         "Invalid Pakistani phone number (should be 11 digits starting with 03)",
     }),
-});
 
+  address: z
+    .string({ required_error: "Address is required" })
+    .trim()
+    .nonempty({ message: "Address cannot be empty" }),
+});
 //Used on Step4 Page
 export const locationSchema = z.object({
   address: z
