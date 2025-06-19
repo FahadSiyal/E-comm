@@ -1,6 +1,6 @@
 import React from "react";
 // import TestimonialSlider from '@/components/TestimonialSlider'
-
+import { useNavigate } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -56,6 +56,9 @@ function Home() {
       img: "./banner-2.jpg",
     },
   ];
+
+  const navigate = useNavigate();
+
 
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -265,7 +268,7 @@ function Home() {
 
   {/* 👇 Make this container relative */}
   <div className="relative w-full">
-    <Card className="bg-gray-50 py-0">
+    <Card className=" py-0">
     <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
       <CarouselContent>
         {products?.map((product, index) => (
@@ -274,11 +277,11 @@ function Home() {
             className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
           >
             <div className="p-1">
-              <Card
-                key={product._id}
-                className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7"
-                onClick={() => console.log(product._id)}
-              >
+            <Card
+  key={product._id}
+  className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7 cursor-pointer"
+  onClick={() => navigate(`/product/${product._id}`, { state: { product } })}
+>
                 <div
                   className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
                   style={{
