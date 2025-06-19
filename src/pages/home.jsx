@@ -251,7 +251,7 @@ const navigate=useNavigate()
                     className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-1/4 "
                   >
                     <div className="p-1">
-                      <Card className="flex justify-center bg-gray-300  h-52 p-0 overflow-hidden bg-[url('./shop.jpg')] bg-center bg-cover"></Card>
+                      <Card className="flex justify-center bg-gray-300  h-52 p-0 overflow-hidden bg-[url('./ball.jpg')] bg-center bg-cover"></Card>
                       <div className="text-center text-sm font-medium text-gray-700 mt-2">
                         Shop name
                       </div>

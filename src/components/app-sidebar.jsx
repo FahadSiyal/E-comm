@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
+import { NavLink } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -95,10 +96,14 @@ export function AppSidebar(props) {
                       alt=""
                       className="h-5 w-5 rounded-xl"
                     />
+                  <NavLink to="/">
                     <span className="text-base font-semibold text-red-600">
-                      Store Name
+                      Mera Brand 
+                      
                     </span>
+                  </NavLink>
                   </a>
+                  
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
