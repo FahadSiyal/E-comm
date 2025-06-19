@@ -26,7 +26,7 @@ const shopDetails = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    console.log("Form Submitted:", data);
+    // console.log("Form Submitted:", data);
     dispatch(saveStepData({step:'shopdetails',data}))
     console.log(saveStepData({step:'shopdetails',data}))
 

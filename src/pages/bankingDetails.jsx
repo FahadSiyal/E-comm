@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,10 @@ import { z } from "zod";
 import { useDispatch } from "react-redux";
 import { saveStepData } from "../features/seller/sellerRegistrationSlice";
 
+import  axios  from "../services/axiosInstance";
+
+import { useSelector } from "react-redux";
+
 // Schema for Banking Details
 const bankingDetailsSchema = z.object({
 
@@ -18,6 +22,11 @@ const bankingDetailsSchema = z.object({
 });
 
 const BankingDetails = () => {
+  const registrationData = useSelector((state) => state.sellerRegistration);
+  useEffect(() => {
+  console.log("Updated Registration Data:", registrationData);
+}, [registrationData]);
+  
   const dispatch=useDispatch()
   const navigate = useNavigate();
 
@@ -29,10 +38,47 @@ const BankingDetails = () => {
     resolver: zodResolver(bankingDetailsSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log("Banking Details Submitted:", data);
-    dispatch(saveStepData({step:''}))
-    navigate("/next-step"); // Replace with your next step route
+  const onSubmit = async (data) => {
+    dispatch(saveStepData({step:'bankingdetails',data}))
+
+
+  const payload = {
+    // From shopdetails
+    name: registrationData.shopdetails?.name,
+    shopName: registrationData.shopdetails?.name,
+    shopLogo: "", // Add this later if needed
+    description: registrationData.shopdetails?.description,
+
+    // From businessdetails
+    businessEmail: registrationData.bussinessdetails?.email,
+    phone: registrationData.bussinessdetails?.phone,
+    businessAddress: registrationData.bussinessdetails?.address,
+
+    // From bankingdetails
+    CNIC: registrationData.bankingdetails?.cnic,
+    bankName: registrationData.bankingdetails?.bankName,
+    accountNumber: registrationData.bankingdetails?.accountNumber,
+
+    // Extra (optional or default)
+    bankAccountTitle: registrationData.shopdetails?.name, // or leave blank
+    taxId: "",
+    businessLicense: "",
+
+    // User credentials (if needed)
+    email: registrationData.bussinessdetails?.email,
+    password: "yourGeneratedOrInputPassword", // you must collect this in Step 1 if required
+
+    
+  };
+
+
+ try {
+    const { data } = await axios.post("/seller/register", payload);
+    console.log("Seller Registered:", data);
+    navigate("/seller-dashboard"); // or success page
+  } catch (error) {
+    console.error("Registration Error:", error.response?.data || error.message);
+  }
   };
 
   return (
@@ -74,7 +120,7 @@ const BankingDetails = () => {
             )}
           </div>
 
-          <Button className="lg:w-36 text-white bg-red-500">Next</Button>
+          <Button className="lg:w-36  text-white bg-red-500">Next</Button>
         </form>
       </div>
     </section>
