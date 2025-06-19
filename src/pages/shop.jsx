@@ -61,7 +61,7 @@ const Shop = () => {
   };
   const handleCategory = (e, item) => {
     e.preventDefault(); // Prevent default link behavior
-    dispatch(deleteCategory(item.name));
+    dispatch(deleteCategory(item));
     navigate("/collection"); // Navigate to the collection page
 
     dispatch(addCategory(item.name)); // Dispatch the category to the Redux store

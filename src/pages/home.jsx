@@ -13,8 +13,6 @@ import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "@/features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import { FaCartArrowDown } from "react-icons/fa6";
-import { deleteCategory,addCategory } from "../features/category/categorySlice";
-import { Navigate, useNavigate } from "react-router-dom";
 
 
 import {
@@ -29,20 +27,24 @@ import axiosInstance from "../services/axiosInstance";
 
 import { Link, NavLink } from "react-router-dom";
 function Home() {
-  const [categories, setCategory] = useState([
-    { name: "Cloths", items: 5, img: "./men-sample.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "Electronics", items: 20, img: "./men-sample.jpg" },
-    { name: "Home Appliances", items: 25, img: "./children-sample.jpg" },
-  ]);
+  const categories = [
+    "Electronics",
+    "Clothing",
+    "Home",
+    "Beauty",
+    "Sports",
+    "Books",
+    "Toys",
+    "Garden",
+    "Shoes",
+    "Watches",
+    "Mobile",
+    "Laptops",
+    "Cameras",
+    "Health",
+    "Jewelry",
+    "Accessories",
+  ];
   const banner = [
     {
       img: "./banner.jpg",
@@ -80,7 +82,7 @@ function Home() {
     };
     fetchProducts();
   }, [currentPage]);
-  const dispatch = useDispatch();
+  const  dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -88,7 +90,7 @@ function Home() {
 
   const handleCategory = (e, item) => {
     e.preventDefault(); // Prevent default link behavior
-    dispatch(deleteCategory(item.name));
+    dispatch(deleteCategory(item));
     navigate("/collection"); // Navigate to the collection page
 
     dispatch(addCategory(item.name)); // Dispatch the category to the Redux store
@@ -109,8 +111,6 @@ function Home() {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
-const navigate=useNavigate()
-
   return (
     <>
       <section className="bg-white">
@@ -156,26 +156,18 @@ const navigate=useNavigate()
           <div className="relative w-full">
             <Carousel opts={{ align: "start" }} className="w-full">
               <CarouselContent>
-                {categories.map((category, index) => (
-                  <Link to="/collection">
-                    <CarouselItem
-                      onClick={(e) => handleCategory(e, category)}
-
-                      key={index}
-                      className="basis-2/7 sm:basis-1/7 md:basis-1/7 lg:basis-1/8 xl:basis-1/8 2xl:basis-[10%] w-32"
-
-                    >
-                      <div className="p-1">
-                        <Card
-                          className="flex justify-center lg:h-24 h-18 p-0 overflow-hidden bg-center bg-cover"
-                          style={{ backgroundImage: `url(${category.img})` }}
-                        ></Card>
-                        <div className="mt-2 text-center text-sm font-medium text-gray-700">
-                          {category.name}
-                        </div>
+                {categories.map((name, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="basis-2/7 sm:basis-1/7 md:basis-1/7 lg:basis-1/8 xl:basis-1/8 2xl:basis-[10%]"
+                  >
+                    <div className="p-1">
+                      <Card className="flex justify-center  lg:h-24  h-18 p-0 overflow-hidden bg-[url('./categories.jpg')] bg-center bg-cover"></Card>
+                      <div className="mt-2 text-center text-sm font-medium text-gray-700">
+                        {name}
                       </div>
-                    </CarouselItem>
-                  </Link>
+                    </div>
+                  </CarouselItem>
                 ))}
               </CarouselContent>
 
@@ -268,11 +260,11 @@ const navigate=useNavigate()
         {/* Shops */}
         {/* Featured Products */}
         <div className="flex flex-col justify-center mt-10 max-w-7xl lg:mx-auto md:mx-10 mx-3 gap-3 overflow-hidden">
-          <div className="flex justify-between items-center">
-            <span>
-              <h1 className="font-bold text-md">Featured Products</h1>
-            </span>
-          </div>
+  <div className="flex justify-between items-center">
+    <span>
+      <h1 className="font-bold text-md">Featured Products</h1>
+    </span>
+  </div>
 
   {/* 👇 Make this container relative */}
   <div className="relative w-full">
@@ -344,19 +336,19 @@ const navigate=useNavigate()
         ))}
       </CarouselContent>
 
-                {/* 👇 Carousel Controls */}
-                <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
-                <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
-              </Carousel>
-            </Card>
-          </div>
-        </div>
+      {/* 👇 Carousel Controls */}
+      <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+      <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+    </Carousel>
+    </Card>
+  </div>
+</div>
 
         {/* Featued Products */}
 
+      
 
-
-
+       
 
         {/* Banner Section */}
         <div className="relative max-w-7xl mx-auto rounded-lg my-10 h-96 flex justify-center items-center text-center bg-black tracking-widest">

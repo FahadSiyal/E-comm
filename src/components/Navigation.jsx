@@ -193,8 +193,8 @@ const Navbar = () => {
             </button>
           </div>
           {/* Navbar Links - Desktop */}
-          <div className="hidden lg:flex lg:w-auto lg:order-1 ">
-            <ul className="flex space-x-8 font-medium justify-center items-center">
+          <div className="hidden lg:flex lg:w-auto lg:order-1">
+            <ul className="flex space-x-8 font-medium">
               <li>
                 <NavLink to="/" className="">
                   Home
@@ -218,11 +218,6 @@ const Navbar = () => {
               <li>
                 <NavLink to="/contact" className="">
                   Contact Us
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/seller" className="">
-                 <button className="border bg-red-500 text-white px-4 p-2 rounded-lg">Be a seller</button>
                 </NavLink>
               </li>
              

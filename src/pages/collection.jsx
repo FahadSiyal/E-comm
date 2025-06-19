@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, } from "@/features/cart/cartSlice";
+import { addToCart,  } from "@/features/cart/cartSlice";
 import {
   Pagination,
   PaginationContent,
@@ -43,7 +43,7 @@ const Collection = () => {
 
         setProducts(response.data.products);
         setTotalPages(response.data.totalPages);
-
+      
       } catch (error) {
         console.error("Failed to fetch products ❌", error);
       }
@@ -51,7 +51,7 @@ const Collection = () => {
 
     fetchProducts();
   }, [currentPage, category]);
-  console.log(category, "category")
+console.log(category, "category")
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   };
@@ -97,11 +97,11 @@ const Collection = () => {
         <div className="max-w-7xl mx-auto  h-auto py-10">
           <div>
             <h1 className="font-bold lg:text-3xl text-xl    px-5">
-              {category}  <span className=" text-lg px-2 text-red-500">collection</span>
+              Collection
             </h1>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  mx-10 gap-4 mt-10 ">
-            {products?.map((product) => (
+          {products?.map((product) => (
               <Card
                 key={product._id}
                 className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex  lg:h-88 md:h-88 h-66 flex-col gap-7 "
@@ -115,12 +115,12 @@ const Collection = () => {
                     backgroundImage: categoryName === 'shoes'
                       ? `url(./shoe.jpg)`
                       : categoryName === 'Cloths'
-                        ? `url(./cloths.jpg)`
-                        : categoryName === 'Accessories'
-                          ? `url(./mobile.jpg)`
-                          : categoryName === 'Electronics'
-                            ? `url(./computer.jpg)`
-                            : `url(./children-sample.jpg)`,  // Default image
+                      ? `url(./cloths.jpg)`
+                      : categoryName === 'Accessories'
+                      ? `url(./mobile.jpg)`
+                      : categoryName === 'Electronics'
+                      ? `url(./computer.jpg)`
+                      : `url(./children-sample.jpg)`,  // Default image
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
@@ -142,11 +142,11 @@ const Collection = () => {
 
                     <div className="text-md ">
                       <span className="line-through decoration-red-500 text-red-800 text-xs">
-                        ${product.price}
+                      ${product.price}
                       </span>{" "}
                       <span className="font-bold lg:text-lg text-xs ">
-                        ${product.actualprice}
-
+                      ${product.actualprice}
+                        
                       </span>
                     </div>
                     <div>
@@ -158,7 +158,7 @@ const Collection = () => {
                           dispatch(addToCart(product));
                         }}
                       >
-                        <FaCartArrowDown />
+                        <FaCartArrowDown  />
                         <span className="ml-2 hidden sm:inline">Add To Cart</span>
                       </Button>
                     </div>

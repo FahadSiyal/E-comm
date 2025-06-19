@@ -1,13 +1,10 @@
-import { StrictMode } from "react";
-import React from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import { createRoutesFromElements, Route, Router } from "react-router-dom";
-import Layout from "./components/Layout";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ShopDetails from "./pages/shopDetails";
-import BussinessDetails from "./pages/bussinessDetails";
-import BankingDetails from "./pages/bankingDetails";
+  import { StrictMode } from "react";
+  import React from "react";
+  import { createRoot } from "react-dom/client";
+  import "./index.css";
+  import { createRoutesFromElements, Route, Router } from "react-router-dom";
+  import Layout from "./components/Layout";
+  import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
   import { Provider } from "react-redux";
 
