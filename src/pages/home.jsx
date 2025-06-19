@@ -1,6 +1,6 @@
 import React from "react";
 // import TestimonialSlider from '@/components/TestimonialSlider'
-import { useNavigate } from "react-router-dom";
+
 import {
   Carousel,
   CarouselContent,
@@ -55,7 +55,7 @@ function Home() {
     },
   ];
 
-  const navigate = useNavigate();
+
 
 
   const [products, setProducts] = useState([]);
