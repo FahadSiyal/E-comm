@@ -1,6 +1,7 @@
 import React from "react";
-// import TestimonialSlider from '@/components/TestimonialSlider'
 import { useNavigate } from "react-router-dom";
+
+
 import {
   Carousel,
   CarouselContent,
@@ -14,7 +15,6 @@ import { addToCart, removeFromCart } from "@/features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { deleteCategory,addCategory } from "../features/category/categorySlice";
-import { Navigate, useNavigate } from "react-router-dom";
 
 
 import {
@@ -55,7 +55,7 @@ function Home() {
     },
   ];
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
 
   const [products, setProducts] = useState([]);
@@ -352,12 +352,10 @@ const navigate=useNavigate()
           </div>
         </div>
 
+
+
+
         {/* Featued Products */}
-
-
-
-
-
         {/* Banner Section */}
         <div className="relative max-w-7xl mx-auto rounded-lg my-10 h-96 flex justify-center items-center text-center bg-black tracking-widest">
           {/* Background Image */}
