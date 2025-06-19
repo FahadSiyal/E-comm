@@ -8,9 +8,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { customerReachSchema } from "../validations/formSchema";
 import { Input } from "../components/ui/input";
-
+import { useDispatch } from "react-redux";
+import { saveStepData } from "../features/seller/sellerRegistrationSlice";
 
 const bussinessDetails = () => {
+  const dispatch=useDispatch()
       const navigate = useNavigate();
       const {
         register,
@@ -21,8 +23,11 @@ const bussinessDetails = () => {
       });
     
       const onSubmit = (data, e) => {
+
         e.preventDefault();
         console.log("Form Submitted:", data);
+    dispatch(saveStepData({step:'bussinessdetails',data}))
+    console.log(saveStepData({step:'bussinessdetails',data}));
     
         navigate("/bankingdetails");
       };

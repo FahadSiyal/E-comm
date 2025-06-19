@@ -6,12 +6,15 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { brandNameSchema } from "../validations/formSchema";
 import { Input } from "../components/ui/input"
+import { useDispatch } from "react-redux";
+import { saveStepData } from "../features/seller/sellerRegistrationSlice";
 import { FaImage } from "react-icons/fa6";
 
 
 import { Textarea } from "../components/ui/textarea";
 import React from "react";
 const shopDetails = () => {
+  const dispatch=useDispatch()
     const navigate = useNavigate();
   const {
     register,
@@ -24,6 +27,8 @@ const shopDetails = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     console.log("Form Submitted:", data);
+    dispatch(saveStepData({step:'shopdetails',data}))
+    console.log(saveStepData({step:'shopdetails',data}))
 
     navigate("/bussinessdetails");
   };

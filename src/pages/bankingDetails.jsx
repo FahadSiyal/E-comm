@@ -6,15 +6,19 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
+import { useDispatch } from "react-redux";
+import { saveStepData } from "../features/seller/sellerRegistrationSlice";
 
 // Schema for Banking Details
 const bankingDetailsSchema = z.object({
+
   cnic: z.string().min(13, "CNIC must be at least 13 digits"),
   bankName: z.string().min(2, "Bank name is required"),
   accountNumber: z.string().min(10, "Account number must be at least 10 digits"),
 });
 
 const BankingDetails = () => {
+  const dispatch=useDispatch()
   const navigate = useNavigate();
 
   const {
@@ -27,6 +31,7 @@ const BankingDetails = () => {
 
   const onSubmit = (data) => {
     console.log("Banking Details Submitted:", data);
+    dispatch(saveStepData({step:''}))
     navigate("/next-step"); // Replace with your next step route
   };
 
