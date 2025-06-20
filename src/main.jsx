@@ -26,7 +26,8 @@ import About from "./pages/about";
 import Contact from "./pages/contact";
 import Seller from "./pages/seller";
 import ScrollToTop from "./components/ScrollToTop";
-// Define router
+import BussinessDetails from "./pages/bussinessDetails";// Define router
+import BankingDetails from "./pages/bankingDetails";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
