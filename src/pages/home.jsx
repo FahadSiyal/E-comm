@@ -32,18 +32,18 @@ function Home() {
   const navigate = useNavigate();
   const [categories, setCategory] = useState([
     { name: "Cloths", items: 5, img: "./men-sample.jpg" },
-    { name: "	Accessories", items: 10, img: "./children-sample.jpg" },
-    { name: "Electronics", items: 15, img: "./women-1.jpg" },
-    { name: "Home Appliances", items: 10, img: "./children-sample.jpg" },
-    { name: "Bags", items: 15, img: "./women-1.jpg" },
-    { name: "Sports", items: 10, img: "./children-sample.jpg" },
+    { name: "	Accessories", items: 10, img: "./watch.jpg" },
+    { name: "Electronics", items: 15, img: "./computer.jpg" },
+    { name: "Home Appliances", items: 10, img: "./elect.jpg" },
+    { name: "Bags", items: 15, img: "./bags.jpg" },
+    { name: "Sports", items: 10, img: "./sports.jpg" },
     // { name: " Furniture", items: 15, img: "./women-1.jpg" },
-    { name: "Books", items: 10, img: "./children-sample.jpg" },
-    { name: "Shoes", items: 15, img: "./women-1.jpg" },
+    { name: "Books", items: 10, img: "./boks.jpg" },
+    { name: "Shoes", items: 15, img: "./shoe.jpg" },
     // { name: " Furniture", items: 15, img: "./women-1.jpg" },
-    { name: "Lighting", items: 15, img: "./women-1.jpg" },
+    { name: "Lighting", items: 15, img: "./light.jpg" },
     // { name: "  Outdoor Gear", items: 15, img: "./women-1.jpg" },
-    { name: "  Baby Products", items: 15, img: "./women-1.jpg" },
+    { name: "  Baby Products", items: 15, img: "./children-sample.jpg" },
     { name: "Hobbies", items: 15, img: "./women-1.jpg" },
 
   ]);
@@ -210,7 +210,7 @@ function Home() {
                     className="basis-2/7 sm:basis-1/7 md:basis-1/7 lg:basis-1/8 xl:basis-1/8 2xl:basis-[10%]"
                   >
                     <div className="p-1">
-                      <Card className="flex justify-center bg-gray-300  lg:h-24  h-18 p-0 overflow-hidden bg-[url('./brands.jpg')] bg-center bg-cover"></Card>
+                      <Card className="flex justify-center bg-gray-300  lg:h-24  h-18 p-0 overflow-hidden bg-[url('./b1.jpg')] bg-center bg-cover"></Card>
                       <div className="text-center text-sm font-medium text-gray-700 mt-2">
                         Brand
                       </div>
@@ -257,7 +257,7 @@ function Home() {
                     className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-1/4 "
                   >
                     <div className="p-1">
-                      <Card className="flex justify-center bg-gray-300  h-52 p-0 overflow-hidden bg-[url('./ball.jpg')] bg-center bg-cover"></Card>
+                      <Card className="flex justify-center bg-gray-300  h-52 p-0 overflow-hidden bg-[url('./s3.jpg')] bg-center bg-cover"></Card>
                       <div className="text-center text-sm font-medium text-gray-700 mt-2">
                         Shop name
                       </div>
