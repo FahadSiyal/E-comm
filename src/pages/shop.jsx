@@ -138,12 +138,12 @@ const Shop = () => {
           <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  lg:mx-10 mx-2  gap-4 mt-10 ">
             {products?.map((product) => (
               <Card
-                key={product._id}
-                className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex  lg:h-88 md:h-88 h-66 flex-col gap-7 "
-                onClick={() => {
-                  console.log(product._id);
-                }}
-              >
+           key={product._id}
+  className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7 cursor-pointer"
+  onClick={() => navigate(`/product/${product._id}`, { state: { product } })}
+>
+                
+              
                 <div
                   className=" h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
                   style={{

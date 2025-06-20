@@ -32,17 +32,20 @@ function Home() {
   const navigate = useNavigate();
   const [categories, setCategory] = useState([
     { name: "Cloths", items: 5, img: "./men-sample.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "Electronics", items: 20, img: "./men-sample.jpg" },
-    { name: "Home Appliances", items: 25, img: "./children-sample.jpg" },
+    { name: "	Accessories", items: 10, img: "./children-sample.jpg" },
+    { name: "Electronics", items: 15, img: "./women-1.jpg" },
+    { name: "Home Appliances", items: 10, img: "./children-sample.jpg" },
+    { name: "Bags", items: 15, img: "./women-1.jpg" },
+    { name: "Sports", items: 10, img: "./children-sample.jpg" },
+    // { name: " Furniture", items: 15, img: "./women-1.jpg" },
+    { name: "Books", items: 10, img: "./children-sample.jpg" },
+    { name: "Shoes", items: 15, img: "./women-1.jpg" },
+    // { name: " Furniture", items: 15, img: "./women-1.jpg" },
+    { name: "Lighting", items: 15, img: "./women-1.jpg" },
+    // { name: "  Outdoor Gear", items: 15, img: "./women-1.jpg" },
+    { name: "  Baby Products", items: 15, img: "./women-1.jpg" },
+    { name: "Hobbies", items: 15, img: "./women-1.jpg" },
+
   ]);
   const banner = [
     {
@@ -274,75 +277,75 @@ function Home() {
             </span>
           </div>
 
-  {/* 👇 Make this container relative */}
-  <div className="relative w-full">
-    <Card className=" py-0">
-    <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
-      <CarouselContent>
-        {products?.map((product, index) => (
-          <CarouselItem
-            key={index}
-            className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
-          >
-            <div className="p-1">
-            <Card
-  key={product._id}
-  className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7 cursor-pointer"
-  onClick={() => navigate(`/product/${product._id}`, { state: { product } })}
->
-                <div
-                  className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
-                  style={{
-                    backgroundImage: `url(./ball.jpg)`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div>
-                    <button className="text-xs bg-green-200 p-[4px] rounded-lg">
-                      30% off
-                    </button>
-                  </div>
-                </div>
-                <div className="lg:text-left px-3 flex flex-col lg:gap-7 gap-5 pb-3">
-                  <div>
-                    <div className="text-md font-semibold">
-                      {product.name}
-                    </div>
-                    <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500 overflow-hidden text-ellipsis">
-                      {product.desc}
-                    </div>
-                  </div>
-                  <div className="flex justify-between lg:flex-row items-center">
-                    <div className="text-md">
-                      <span className="line-through decoration-red-500 text-red-800 text-xs">
-                        ${product.price}
-                      </span>{" "}
-                      <span className="font-bold lg:text-lg text-xs">
-                        ${product.actualprice}
-                      </span>
-                    </div>
-                    <div>
-                      <Button
-                        className="text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg"
-                        onClick={() => {
-                          console.log("Trying to add", product._id);
-                          dispatch(addToCart(product));
-                        }}
-                      >
-                        <FaCartArrowDown />
-                        <span className="ml-2 hidden sm:inline">
-                          Add To Cart
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
+          {/* 👇 Make this container relative */}
+          <div className="relative w-full">
+            <Card className="bg-gray-50 py-0">
+              <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
+                <CarouselContent>
+                  {products?.map((product, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
+                    >
+                      <div className="p-1">
+                        <Card
+                          key={product._id}
+                          className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7"
+                          onClick={() => console.log(product._id)}
+                        >
+                          <div
+                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                            style={{
+                              backgroundImage: `url(./ball.jpg)`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }}
+                          >
+                            <div>
+                              <button className="text-xs bg-green-200 p-[4px] rounded-lg">
+                                30% off
+                              </button>
+                            </div>
+                          </div>
+                          <div className="lg:text-left px-3 flex flex-col lg:gap-7 gap-5 pb-3">
+                            <div>
+                              <div className="text-md font-semibold">
+                                {product.name}
+                              </div>
+                              <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500 overflow-hidden text-ellipsis">
+                                {product.desc}
+                              </div>
+                            </div>
+                            <div className="flex justify-between lg:flex-row items-center">
+                              <div className="text-md">
+                                <span className="line-through decoration-red-500 text-red-800 text-xs">
+                                  ${product.price}
+                                </span>{" "}
+                                <span className="font-bold lg:text-lg text-xs">
+                                  ${product.actualprice}
+                                </span>
+                              </div>
+                              <div>
+                                <Button
+                                  className="text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg"
+                                  onClick={() => {
+                                    console.log("Trying to add", product._id);
+                                    dispatch(addToCart(product));
+                                  }}
+                                >
+                                  <FaCartArrowDown />
+                                  <span className="ml-2 hidden sm:inline">
+                                    Add To Cart
+                                  </span>
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
 
                 {/* 👇 Carousel Controls */}
                 <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
@@ -352,12 +355,10 @@ function Home() {
           </div>
         </div>
 
+
+
+
         {/* Featued Products */}
-
-
-
-
-
         {/* Banner Section */}
         <div className="relative max-w-7xl mx-auto rounded-lg my-10 h-96 flex justify-center items-center text-center bg-black tracking-widest">
           {/* Background Image */}

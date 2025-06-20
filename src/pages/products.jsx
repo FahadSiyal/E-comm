@@ -172,6 +172,7 @@ function Products() {
                 <TableHead className="px-4 py-2 text-red-600">Name</TableHead>
                 <TableHead className="px-4 py-2 text-red-600">Price</TableHead>
                 <TableHead className="px-4 py-2 text-red-600">Actual Price</TableHead>
+                {/* <TableHead className="px-4 py-2 text-red-600">Image</TableHead> */}
                 <TableHead className="px-4 py-2 text-red-600">Category</TableHead>
                 <TableHead className="px-4 py-2 text-red-600">Delete</TableHead>
               </TableRow>
@@ -183,6 +184,7 @@ function Products() {
                   <TableCell className="px-4 py-2">{product.name}</TableCell>
                   <TableCell className="px-4 py-2">{product.price}</TableCell>
                   <TableCell className="px-4 py-2">{product.actualprice}</TableCell>
+                  {/* <TableCell className="px-4 py-2">{product.img}</TableCell> */}
                   <TableCell className="px-4 py-2">{product.category}</TableCell>
                   <TableCell className="px-4 py-2">
                     <button
