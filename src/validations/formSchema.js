@@ -92,6 +92,8 @@ export const descriptionSchema = z.object({
 });
 
 //Used on Step3 Page
+
+
 export const customerReachSchema = z.object({
   email: z
     .string({ required_error: "Email is required" })
@@ -112,7 +114,13 @@ export const customerReachSchema = z.object({
     .string({ required_error: "Address is required" })
     .trim()
     .nonempty({ message: "Address cannot be empty" }),
+
+  password: z
+    .string({ required_error: "Password is required" })
+    .min(6, { message: "Password must be at least 6 characters long" })
+    .max(50, { message: "Password must be at most 50 characters long" }),
 });
+
 //Used on Step4 Page
 export const locationSchema = z.object({
   address: z
