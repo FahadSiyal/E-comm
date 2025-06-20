@@ -1,6 +1,6 @@
 import React from "react";
 // import TestimonialSlider from '@/components/TestimonialSlider'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -14,6 +14,7 @@ import { addToCart, removeFromCart } from "@/features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { deleteCategory,addCategory } from "../features/category/categorySlice";
+import {  useNavigate } from "react-router-dom";
 
 
 import {
@@ -28,6 +29,7 @@ import axiosInstance from "../services/axiosInstance";
 
 import { Link, NavLink } from "react-router-dom";
 function Home() {
+  const navigate = useNavigate();
   const [categories, setCategory] = useState([
     { name: "Cloths", items: 5, img: "./men-sample.jpg" },
     { name: "	Accessories", items: 10, img: "./children-sample.jpg" },
@@ -110,7 +112,7 @@ function Home() {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
-const navigate=useNavigate()
+// const navigate=useNavigate()
 
   return (
     <>
