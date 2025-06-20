@@ -67,7 +67,7 @@ const BankingDetails = () => {
 
     // User credentials (if needed)
     email: registrationData.bussinessdetails?.email,
-    password: "yourGeneratedOrInputPassword", // you must collect this in Step 1 if required
+    password: registrationData.bussinessdetails?.email, // you must collect this in Step 1 if required
 
     
   };

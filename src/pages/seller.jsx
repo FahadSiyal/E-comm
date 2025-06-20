@@ -16,9 +16,20 @@ import { Link } from "react-router-dom";
 import { Card } from "../components/ui/card";
 import ScrollToTop from "../components/ScrollToTop";
 import { Input } from "../components/ui/input";
-import {Button} from '../components/ui/button'
+import { Button } from "../components/ui/button";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify";
+import { loginSchema } from "../validations/formSchema";
+import axios from "../services/axiosInstance";
+import { useNavigate } from "react-router-dom";
+
+// UI Components
+
 
 const seller = () => {
+  const navigate=useNavigate()
   const features = [
     {
       icon: <FiShoppingBag className="text-4xl text-red-500" />,
@@ -79,6 +90,29 @@ const seller = () => {
     },
   ];
 
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(loginSchema),
+  });
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("/seller/login", data);
+      console.log("Logged in:", response.data.token);
+      reset();
+      navigate('/wp-admin')
+
+      toast.success(" Seller Logged in successfully!");
+    } catch (error) {
+      console.error("L ogin failed:", error);
+      toast.error(" Seller Failed to login. Please try again.");
+    }
+  };
+
   return (
     <section className="">
       <ScrollToTop />
@@ -95,19 +129,47 @@ const seller = () => {
               </button>
             </Link>
           </div>
-          <div>
-            <Card className="bg-white flex flex-col px-5 h-96 w-96 justify-center">
-              <div>
-                <h1 className="text-2xl font-bold">Login</h1>
-              </div>
-              <div className="space-y-3">
-                <Input placeHolder="Enter Your Email" className={'w-full'} />
-                <Input placeHolder="Enter Your Password" className={'w-full'} />
-       
-              </div>
-              <div className="flex items-end mt-10" > <Button  className="lg:w-36 text-white bg-red-500 flex ">Next</Button></div>
-            </Card>
+
+          {/* Seller Login Form Start  */}
+          <div className="flex items-center justify-center  rounded-lg bg-gray-100">
+      <Card className="bg-white flex flex-col px-5 py-8 w-96 space-y-6 shadow-md rounded-lg">
+        <div>
+          <h1 className="text-2xl font-bold text-center">Seller Login</h1>
+        </div>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div className="space-y-1">
+            <Input
+              {...register("email")}
+              placeholder="Enter Your Email"
+              className="w-full"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-xs">{errors.email.message}</p>
+            )}
           </div>
+
+          <div className="space-y-1">
+            <Input
+              {...register("password")}
+              type="password"
+              placeholder="Enter Your Password"
+              className="w-full"
+            />
+            {errors.password && (
+              <p className="text-red-500 text-xs">{errors.password.message}</p>
+            )}
+          </div>
+
+          <div className="flex justify-end mt-6">
+            <Button type="submit" className="lg:w-36 text-white bg-red-500">
+              Next
+            </Button>
+          </div>
+        </form>
+      </Card>
+    </div>
+          {/* Seller Login Form Start  */}
         </div>
       </div>
 
