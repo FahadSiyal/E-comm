@@ -30,17 +30,20 @@ import { Link, NavLink } from "react-router-dom";
 function Home() {
   const [categories, setCategory] = useState([
     { name: "Cloths", items: 5, img: "./men-sample.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "Electronics", items: 20, img: "./men-sample.jpg" },
-    { name: "Home Appliances", items: 25, img: "./children-sample.jpg" },
+    { name: "	Accessories", items: 10, img: "./children-sample.jpg" },
+    { name: "Electronics", items: 15, img: "./women-1.jpg" },
+    { name: "Home Appliances", items: 10, img: "./children-sample.jpg" },
+    { name: "Bags", items: 15, img: "./women-1.jpg" },
+    { name: "Sports", items: 10, img: "./children-sample.jpg" },
+    // { name: " Furniture", items: 15, img: "./women-1.jpg" },
+    { name: "Books", items: 10, img: "./children-sample.jpg" },
+    { name: "Shoes", items: 15, img: "./women-1.jpg" },
+    // { name: " Furniture", items: 15, img: "./women-1.jpg" },
+    { name: "Lighting", items: 15, img: "./women-1.jpg" },
+    // { name: "  Outdoor Gear", items: 15, img: "./women-1.jpg" },
+    { name: "  Baby Products", items: 15, img: "./women-1.jpg" },
+    { name: "Hobbies", items: 15, img: "./women-1.jpg" },
+
   ]);
   const banner = [
     {
