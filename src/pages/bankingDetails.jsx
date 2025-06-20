@@ -75,7 +75,7 @@ const BankingDetails = () => {
  try {
     const { data } = await axios.post("/seller/register", payload);
     console.log("Seller Registered:", data);
-    navigate("/seller-dashboard"); // or success page
+    navigate("/wp-admin"); // or success page
   } catch (error) {
     console.error("Registration Error:", error.response?.data || error.message);
   }
