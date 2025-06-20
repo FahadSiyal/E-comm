@@ -68,7 +68,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const token = Cookies.get("token");
-    console.log("token" + token);
+    console.log("token " +  token);
 
     setIsAuthenticated(!!token); // Convert token to boolean
   }, [Cookies.get("token")]); // Dependency array to re-run effect when token changes

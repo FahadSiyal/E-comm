@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { useDispatch } from "react-redux";
 import { saveStepData } from "../features/seller/sellerRegistrationSlice";
+import { toast } from "react-toastify";
 
 import  axios  from "../services/axiosInstance";
 
@@ -66,7 +67,7 @@ const BankingDetails = () => {
 
     // User credentials (if needed)
     email: registrationData.bussinessdetails?.email,
-    password: "yourGeneratedOrInputPassword", // you must collect this in Step 1 if required
+    password: registrationData.bussinessdetails?.email, // you must collect this in Step 1 if required
 
     
   };
@@ -75,9 +76,12 @@ const BankingDetails = () => {
  try {
     const { data } = await axios.post("/seller/register", payload);
     console.log("Seller Registered:", data);
-    navigate("/wp-admin"); // or success page
+    toast.success("seller created succesfully")
+    navigate("/seller"); // or success page
   } catch (error) {
+    toast.error("seller already exist")
     console.error("Registration Error:", error.response?.data || error.message);
+    navigate("/seller")
   }
   };
 

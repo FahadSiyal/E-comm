@@ -163,14 +163,14 @@ const Checkout = () => {
                       </div>
                       <div className="text-sm">
                         <div className="flex gap-3">
-                          <div className="flex flex-col gap-1 w-full ">
+                          <div className="flex flex-col gap-1 w-full  h-80 overflow-y-scroll  ">
                             {CartItems.map((item, index) => (
                               <Card
                                 key={index}
-                                className="w-full h-20 flex items-center justify-between px-4 rounded-md  bg-gray-50"
+                                className="w-full h-20 flex flex-row items-center  justify-between px-4 rounded-md  bg-gray-50 "
                               >
                                 {/* Left Side: Product Info */}
-                                <div className="flex items-center gap-2 justify-center">
+                                <div className="flex  items-center gap-2 justify-center">
                                   <div className="bg-gray-800 h-7 w-7"></div>
                                   <div>
                                     <h1 className="text-sm font-semibold">

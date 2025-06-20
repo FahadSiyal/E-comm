@@ -47,6 +47,13 @@ const bussinessDetails = () => {
           </div>
           <div className="space-y-2 flex flex-col">
             <Label className="text-gray-500 text-sm">
+          Enter Your Password
+            </Label>
+            <Input {...register("password")} className="lg:w-1/2" />
+            {errors.password && <p className="text-red-500 text-xs">{errors.password.message}</p>}
+          </div>
+          <div className="space-y-2 flex flex-col">
+            <Label className="text-gray-500 text-sm">
               What's the address of your company?
             </Label>
             <Input {...register("address")} className="lg:w-1/2" />
