@@ -1,6 +1,6 @@
 import React from "react";
 // import TestimonialSlider from '@/components/TestimonialSlider'
-
+import { useNavigate } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "@/features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import { FaCartArrowDown } from "react-icons/fa6";
+import { deleteCategory,addCategory } from "../features/category/categorySlice";
 
 
 import {
@@ -27,24 +28,23 @@ import axiosInstance from "../services/axiosInstance";
 
 import { Link, NavLink } from "react-router-dom";
 function Home() {
-  const categories = [
-    "Electronics",
-    "Clothing",
-    "Home",
-    "Beauty",
-    "Sports",
-    "Books",
-    "Toys",
-    "Garden",
-    "Shoes",
-    "Watches",
-    "Mobile",
-    "Laptops",
-    "Cameras",
-    "Health",
-    "Jewelry",
-    "Accessories",
-  ];
+  const [categories, setCategory] = useState([
+    { name: "Cloths", items: 5, img: "./men-sample.jpg" },
+    { name: "	Accessories", items: 10, img: "./children-sample.jpg" },
+    { name: "Electronics", items: 15, img: "./women-1.jpg" },
+    { name: "Home Appliances", items: 10, img: "./children-sample.jpg" },
+    { name: "Bags", items: 15, img: "./women-1.jpg" },
+    { name: "Sports", items: 10, img: "./children-sample.jpg" },
+    // { name: " Furniture", items: 15, img: "./women-1.jpg" },
+    { name: "Books", items: 10, img: "./children-sample.jpg" },
+    { name: "Shoes", items: 15, img: "./women-1.jpg" },
+    // { name: " Furniture", items: 15, img: "./women-1.jpg" },
+    { name: "Lighting", items: 15, img: "./women-1.jpg" },
+    // { name: "  Outdoor Gear", items: 15, img: "./women-1.jpg" },
+    { name: "  Baby Products", items: 15, img: "./women-1.jpg" },
+    { name: "Hobbies", items: 15, img: "./women-1.jpg" },
+
+  ]);
   const banner = [
     {
       img: "./banner.jpg",
@@ -56,6 +56,8 @@ function Home() {
       img: "./banner-2.jpg",
     },
   ];
+
+
 
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -79,7 +81,7 @@ function Home() {
     };
     fetchProducts();
   }, [currentPage]);
-  const  dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -87,7 +89,7 @@ function Home() {
 
   const handleCategory = (e, item) => {
     e.preventDefault(); // Prevent default link behavior
-    dispatch(deleteCategory(item));
+    dispatch(deleteCategory(item.name));
     navigate("/collection"); // Navigate to the collection page
 
     dispatch(addCategory(item.name)); // Dispatch the category to the Redux store
@@ -108,6 +110,8 @@ function Home() {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+const navigate=useNavigate()
+
   return (
     <>
       <section className="bg-white">
@@ -153,18 +157,26 @@ function Home() {
           <div className="relative w-full">
             <Carousel opts={{ align: "start" }} className="w-full">
               <CarouselContent>
-                {categories.map((name, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="basis-2/7 sm:basis-1/7 md:basis-1/7 lg:basis-1/8 xl:basis-1/8 2xl:basis-[10%]"
-                  >
-                    <div className="p-1">
-                      <Card className="flex justify-center  lg:h-24  h-18 p-0 overflow-hidden bg-[url('./categories.jpg')] bg-center bg-cover"></Card>
-                      <div className="mt-2 text-center text-sm font-medium text-gray-700">
-                        {name}
+                {categories.map((category, index) => (
+                  <Link to="/collection">
+                    <CarouselItem
+                      onClick={(e) => handleCategory(e, category)}
+
+                      key={index}
+                      className="basis-2/7 sm:basis-1/7 md:basis-1/7 lg:basis-1/8 xl:basis-1/8 2xl:basis-[10%] w-32"
+
+                    >
+                      <div className="p-1">
+                        <Card
+                          className="flex justify-center lg:h-24 h-18 p-0 overflow-hidden bg-center bg-cover"
+                          style={{ backgroundImage: `url(${category.img})` }}
+                        ></Card>
+                        <div className="mt-2 text-center text-sm font-medium text-gray-700">
+                          {category.name}
+                        </div>
                       </div>
-                    </div>
-                  </CarouselItem>
+                    </CarouselItem>
+                  </Link>
                 ))}
               </CarouselContent>
 
@@ -257,15 +269,15 @@ function Home() {
         {/* Shops */}
         {/* Featured Products */}
         <div className="flex flex-col justify-center mt-10 max-w-7xl lg:mx-auto md:mx-10 mx-3 gap-3 overflow-hidden">
-  <div className="flex justify-between items-center">
-    <span>
-      <h1 className="font-bold text-md">Featured Products</h1>
-    </span>
-  </div>
+          <div className="flex justify-between items-center">
+            <span>
+              <h1 className="font-bold text-md">Featured Products</h1>
+            </span>
+          </div>
 
   {/* 👇 Make this container relative */}
   <div className="relative w-full">
-    <Card className="bg-gray-50 py-0">
+    <Card className=" py-0">
     <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
       <CarouselContent>
         {products?.map((product, index) => (
@@ -274,11 +286,11 @@ function Home() {
             className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
           >
             <div className="p-1">
-              <Card
-                key={product._id}
-                className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7"
-                onClick={() => console.log(product._id)}
-              >
+            <Card
+  key={product._id}
+  className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7 cursor-pointer"
+  onClick={() => navigate(`/product/${product._id}`, { state: { product } })}
+>
                 <div
                   className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
                   style={{
@@ -333,20 +345,18 @@ function Home() {
         ))}
       </CarouselContent>
 
-      {/* 👇 Carousel Controls */}
-      <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
-      <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
-    </Carousel>
-    </Card>
-  </div>
-</div>
+                {/* 👇 Carousel Controls */}
+                <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+                <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+              </Carousel>
+            </Card>
+          </div>
+        </div>
+
+
+
 
         {/* Featued Products */}
-
-      
-
-       
-
         {/* Banner Section */}
         <div className="relative max-w-7xl mx-auto rounded-lg my-10 h-96 flex justify-center items-center text-center bg-black tracking-widest">
           {/* Background Image */}
