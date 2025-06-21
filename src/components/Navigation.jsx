@@ -202,7 +202,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink to="/wp-admin" className="">
-                  AdminPanel
+                  Admin   Panel
                 </NavLink>
               </li>
               <li>
@@ -276,8 +276,8 @@ const Navbar = () => {
                                 <h1 className="text-sm font-semibold">
                                   {item.name}
                                 </h1>
-                                <span className="text-xs text-gray-500">
-                                  Quantity : {item.quantity}
+``                                <span className="text-xs text-gray-500">
+``                                  Quantity : {item.quantity}
                                 </span>
                               </div>
                             </div>
