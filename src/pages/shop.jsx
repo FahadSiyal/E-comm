@@ -26,9 +26,9 @@ const Shop = () => {
   const dispatch = useDispatch();
   const [Category, setCategory] = useState([
     { name: "Cloths", items: 5, img: "./men-sample.jpg" },
-    { name: "shoes", items: 10, img: "./children-sample.jpg" },
+    { name: "shoes", items: 10, img: "./shoe.jpg" },
     { name: "Accessories", items: 15, img: "./women-1.jpg" },
-    { name: "Electronics", items: 20, img: "./men-sample.jpg" },
+    { name: "Electronics", items: 20, img: "./computer.jpg" },
     { name: "Home Appliances", items: 25, img: "./children-sample.jpg" },
   ]);
   const [products, setProducts] = useState([]);
@@ -147,7 +147,7 @@ const Shop = () => {
                 <div
                   className=" h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
                   style={{
-                    backgroundImage: `url(./children-sample.jpg)`,
+                    backgroundImage: `url(./men-1.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
