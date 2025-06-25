@@ -90,19 +90,19 @@ export function AppSidebar(props) {
                   asChild
                   className="data-[slot=sidebar-menu-button]:!p-1.5"
                 >
-                  <a href="#">
+                
+                  <NavLink to="/">
                     <img
                       src="./sample shirt.jpg"
                       alt=""
                       className="h-5 w-5 rounded-xl"
                     />
-                  <NavLink to="/">
                     <span className="text-base font-semibold text-red-600">
                       Mera Brand 
                       
                     </span>
                   </NavLink>
-                  </a>
+                 
                   
                 </SidebarMenuButton>
               </SidebarMenuItem>
