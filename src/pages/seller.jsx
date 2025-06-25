@@ -108,7 +108,7 @@ const seller = () => {
 
       toast.success(" Seller Logged in successfully!");
     } catch (error) {
-      console.error("L ogin failed:", error);
+      toast.error("Login failed:", error);
       toast.error(" Seller Failed to login. Please try again.");
     }
   };

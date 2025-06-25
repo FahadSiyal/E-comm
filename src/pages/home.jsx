@@ -355,10 +355,6 @@ function Home() {
             </Card>
           </div>
         </div>
-
-
-
-
         {/* Featued Products */}
         {/* Banner Section */}
         <div className="relative max-w-7xl mx-auto rounded-lg my-10 h-96 flex justify-center items-center text-center bg-black tracking-widest">
@@ -375,39 +371,179 @@ function Home() {
           </h1>
         </div>
 
-        {/* Sub-Section */}
-        <section className="py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-6 bg-white">
-          {/* Left Side - Image */}
-          <div className="m-auto">
-            <img
-              src="./women-1.jpg"
-              alt="Featured Product"
-              className="w-70 h-auto object-cover rounded-lg"
-            />
+   
+          {/* Popular Products */}
+        <div className="flex flex-col justify-center mt-10 max-w-7xl lg:mx-auto md:mx-10 mx-3 gap-3 overflow-hidden my-10">
+          <div className="flex justify-between items-center">
+            <span>
+              <h1 className="font-bold text-md">Popular Products</h1>
+            </span>
           </div>
 
-          {/* Right Side - Text Content */}
-          <div className="flex flex-col justify-center space-y-4 text-center md:text-left">
-            <p className="text-sm text-red-600 uppercase">Summer 2020</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-              Part of the Neural Universe
-            </h2>
-            <p className="text-gray-600 text-base md:text-lg">
-              We know how large objects will act, but things on a small scale.
-            </p>
-            <div className="flex justify-center md:justify-start space-x-4 pt-6">
-              <Link to="/shop">
-                {" "}
-                <button className="bg-black text-white px-5 py-2 rounded-md text-sm hover:cursor-pointer">
-                  Buy Now
-                </button>
-              </Link>
-              <button className="border border-slate-300 text-black hover:bg-green-100  px-5 py-2 rounded-md text-sm">
-                Read More
-              </button>
-            </div>
+          {/* 👇 Make this container relative */}
+          <div className="relative w-full">
+            <Card className="bg-gray-50 py-0">
+              <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
+                <CarouselContent>
+                  {products?.map((product, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
+                    >
+                      <div className="p-1">
+                        <Card
+                          key={product._id}
+                          className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7"
+                          onClick={() => console.log(product._id)}
+                        >
+                          <div
+                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                            style={{
+                              backgroundImage: `url(./men-1.jpg)`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }}
+                          >
+                            <div>
+                              <button className="text-xs bg-green-200 p-[4px] rounded-lg">
+                                30% off
+                              </button>
+                            </div>
+                          </div>
+                          <div className="lg:text-left px-3 flex flex-col lg:gap-7 gap-5 pb-3">
+                            <div>
+                              <div className="text-md font-semibold">
+                                {product.name}
+                              </div>
+                              <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500 overflow-hidden text-ellipsis">
+                                {product.desc}
+                              </div>
+                            </div>
+                            <div className="flex justify-between lg:flex-row items-center">
+                              <div className="text-md">
+                                <span className="line-through decoration-red-500 text-red-800 text-xs">
+                                  ${product.price}
+                                </span>{" "}
+                                <span className="font-bold lg:text-lg text-xs">
+                                  ${product.actualprice}
+                                </span>
+                              </div>
+                              <div>
+                                <Button
+                                  className="text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg"
+                                  onClick={() => {
+                                    console.log("Trying to add", product._id);
+                                    dispatch(addToCart(product));
+                                  }}
+                                >
+                                  <FaCartArrowDown />
+                                  <span className="ml-2 hidden sm:inline">
+                                    Add To Cart
+                                  </span>
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+
+                {/* 👇 Carousel Controls */}
+                <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+                <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+              </Carousel>
+            </Card>
           </div>
-        </section>
+        </div>
+        {/* Popular Products */}
+          {/* Trending Products */}
+        <div className="flex flex-col justify-center mt-10 max-w-7xl lg:mx-auto md:mx-10 mx-3 gap-3 overflow-hidden my-10">
+          <div className="flex justify-between items-center">
+            <span>
+              <h1 className="font-bold text-md">Trending Products</h1>
+            </span>
+          </div>
+
+          {/* 👇 Make this container relative */}
+          <div className="relative w-full">
+            <Card className="bg-gray-50 py-0">
+              <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
+                <CarouselContent>
+                  {products?.map((product, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 2xl:basis-2/9"
+                    >
+                      <div className="p-1">
+                        <Card
+                          key={product._id}
+                          className="bg-white shadow-md rounded-lg py-0 overflow-hidden mt-4 flex lg:h-88 md:h-88 h-66 flex-col gap-7"
+                          onClick={() => console.log(product._id)}
+                        >
+                          <div
+                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                            style={{
+                              backgroundImage: `url(./men-1.jpg)`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }}
+                          >
+                            <div>
+                              <button className="text-xs bg-green-200 p-[4px] rounded-lg">
+                                30% off
+                              </button>
+                            </div>
+                          </div>
+                          <div className="lg:text-left px-3 flex flex-col lg:gap-7 gap-5 pb-3">
+                            <div>
+                              <div className="text-md font-semibold">
+                                {product.name}
+                              </div>
+                              <div className="lg:line-clamp-2 line-clamp-1 lg:text-sm text-xs text-gray-500 overflow-hidden text-ellipsis">
+                                {product.desc}
+                              </div>
+                            </div>
+                            <div className="flex justify-between lg:flex-row items-center">
+                              <div className="text-md">
+                                <span className="line-through decoration-red-500 text-red-800 text-xs">
+                                  ${product.price}
+                                </span>{" "}
+                                <span className="font-bold lg:text-lg text-xs">
+                                  ${product.actualprice}
+                                </span>
+                              </div>
+                              <div>
+                                <Button
+                                  className="text-white bg-black lg:text-normal text-xs hover:bg-gray-700 rounded-lg"
+                                  onClick={() => {
+                                    console.log("Trying to add", product._id);
+                                    dispatch(addToCart(product));
+                                  }}
+                                >
+                                  <FaCartArrowDown />
+                                  <span className="ml-2 hidden sm:inline">
+                                    Add To Cart
+                                  </span>
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+
+                {/* 👇 Carousel Controls */}
+                <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+                <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+              </Carousel>
+            </Card>
+          </div>
+        </div>
+        {/* Trending Products */}
 
         {/* Testimonial Section */}
         {/* <div className='bg-white p-20'>
