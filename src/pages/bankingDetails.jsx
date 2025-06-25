@@ -74,7 +74,7 @@ const BankingDetails = () => {
       const { data } = await axios.post("/seller/register", payload);
       console.log("Seller Registered:", data);
       toast.success("Seller in successfully!");
-      navigate("/"); // or success page
+      navigate("/seller"); // or success page
     } catch (error) {
       toast.error("Seller Login Failed!");
       console.error(
