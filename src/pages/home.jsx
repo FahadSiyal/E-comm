@@ -381,8 +381,8 @@ function Home() {
           </div>
 
           {/* 👇 Make this container relative */}
-          <div className="relative w-full">
-            <Card className="bg-gray-50 py-0">
+           <div className="relative w-full">
+            <Card className="white py-0">
               <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
                 <CarouselContent>
                   {products?.map((product, index) => (
@@ -403,6 +403,7 @@ function Home() {
                               backgroundSize: "cover",
                               backgroundPosition: "center",
                             }}
+                            onClick={() => navigate(`/product/${product._id}`, { state: { product } })}
                           >
                             <div>
                               <button className="text-xs bg-green-200 p-[4px] rounded-lg">
@@ -467,8 +468,8 @@ function Home() {
           </div>
 
           {/* 👇 Make this container relative */}
-          <div className="relative w-full">
-            <Card className="bg-gray-50 py-0">
+            <div className="relative w-full">
+            <Card className="white py-0">
               <Carousel opts={{ align: "start" }} className="w-full px-2 my-2">
                 <CarouselContent>
                   {products?.map((product, index) => (
@@ -489,6 +490,7 @@ function Home() {
                               backgroundSize: "cover",
                               backgroundPosition: "center",
                             }}
+                            onClick={() => navigate(`/product/${product._id}`, { state: { product } })}
                           >
                             <div>
                               <button className="text-xs bg-green-200 p-[4px] rounded-lg">
