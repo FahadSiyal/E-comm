@@ -49,7 +49,7 @@ const router = createBrowserRouter(
         <Route path="/cart" element={<Cart/>} /> */}
       </Route>
      
-        <Route path="/seller" element={<Seller />} />
+        <Route path="/manufacturer" element={<Seller />} />
         <Route path="/shopdetails" element={<ShopDetails />} />
         <Route path="/bussinessdetails" element={<BussinessDetails />} />
         <Route path="/bankingdetails" element={<BankingDetails />} />
