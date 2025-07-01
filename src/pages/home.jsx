@@ -294,7 +294,7 @@ function Home() {
                           onClick={() => console.log(product._id)}
                         >
                           <div
-                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover hover:scale-105 transition-transform duration-300"
                             style={{
                               backgroundImage: `url(./men-1.jpg)`,
                               backgroundSize: "cover",
@@ -397,7 +397,7 @@ function Home() {
                           onClick={() => console.log(product._id)}
                         >
                           <div
-                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover hover:scale-105 transition-transform duration-300"
                             style={{
                               backgroundImage: `url(./men-1.jpg)`,
                               backgroundSize: "cover",
@@ -484,7 +484,7 @@ function Home() {
                           onClick={() => console.log(product._id)}
                         >
                           <div
-                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover"
+                            className="h-56 w-full flex justify-end p-2 bg-gray-300 overflow-hidden bg-center bg-cover hover:scale-105 transition-transform duration-300  "
                             style={{
                               backgroundImage: `url(./men-1.jpg)`,
                               backgroundSize: "cover",
