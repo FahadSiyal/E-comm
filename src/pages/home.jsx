@@ -26,7 +26,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import axiosInstance from "../services/axiosInstance";
-
+import { useNavigate } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();

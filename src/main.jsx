@@ -32,6 +32,7 @@ import ShopInventory from "./pages/shopInventory";
 import Sellers from "./pages/sellerDashboard";
 import Credentials from "./pages/credentials";
 
+<<<<<<< Updated upstream
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -49,6 +50,41 @@ const router = createBrowserRouter(
 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/collection" element={<Collection />} />
+=======
+import { Provider } from "react-redux";
+import LayoutSidebar from "./components/LayoutSidebar";
+import Dashboard  from "./pages/dashboard";
+import Users from "./pages/users";
+import Seller from "./pages/seller";
+import Products from "./pages/products";
+import Orders from "./pages/orders";
+import Shop from './pages/shop'
+import ProductDesc from './pages/productDesc'
+import MarketPlace from './pages/marketplace'
+import { store } from "./redux/store";
+import Checkout from "./pages/checkout";
+import Collection from "./pages/collection";
+import Home from "./pages/home";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+
+
+  // Define router
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="/shop" element={<Shop />} />
+<Route path="/product/:id" element={<ProductDesc />} />
+<Route path="seller" element={<Seller/>} />
+<Route path="seller" element={<Seller/>} />
+<Route path="seller" element={<Seller/>} />
+
+          <Route path="/marketplace" element={<MarketPlace />} />
+>>>>>>> Stashed changes
 
   
         {/* <Route path="/menu" element={<Menu />} />
