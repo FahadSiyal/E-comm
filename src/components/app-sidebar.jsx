@@ -65,6 +65,11 @@ const data = {
       url: "/wp-admin/users",
       icon: UsersIcon,
     },
+    {
+      title: "Sellers",
+      url: "/wp-admin/seller",
+      icon: UsersIcon,
+    },
   ],
 };
 

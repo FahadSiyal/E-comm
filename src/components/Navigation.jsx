@@ -202,11 +202,11 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink to="/wp-admin" className="">
-                  Admin   Panel
+                  AdminPanel
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/marketplace" className="">
+                <NavLink to="/shop" className="">
                   Shop
                 </NavLink>
               </li>
@@ -220,11 +220,11 @@ const Navbar = () => {
                   Contact Us
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/seller" className="">
                  <button className="border bg-red-500 text-white px-4 p-2 rounded-lg">Be a seller</button>
                 </NavLink>
-              </li>
+              </li> */}
              
              
             </ul>
@@ -276,8 +276,8 @@ const Navbar = () => {
                                 <h1 className="text-sm font-semibold">
                                   {item.name}
                                 </h1>
-``                                <span className="text-xs text-gray-500">
-``                                  Quantity : {item.quantity}
+                                <span className="text-xs text-gray-500">
+                                  Quantity : {item.quantity}
                                 </span>
                               </div>
                             </div>
@@ -333,18 +333,18 @@ const Navbar = () => {
 
                       
 
-                <div className="flex items-center bg-white">
+                {/* <div className="flex items-center bg-white"> */}
 
 
                   {/* <img className="h-8" src="6596121.png" alt="User Avatar" /> */}
-                  <span className="ml-2 text-gray-700">Hi,{ }</span>
+                  {/* <span className="ml-2 text-gray-700">Hi,{ }</span>
                 </div>
                 <button
                   onClick={handleLogout}
                   className="bg-red-500 text-white rounded-md hover:bg-red-600 text-sm px-4 py-2"
                 >
                   Logout
-                </button>
+                </button> */}
               </>
             ) : (
               <>
@@ -447,7 +447,7 @@ const Navbar = () => {
                   </Sheet>
                 </li>
                 {/* Login Form Dialog */}
-                <Dialog
+                {/* <Dialog
                   open={openLogin}
                   onOpenChange={(openLogin) => dispatch(closeLoginDialog())}
                 >
@@ -476,10 +476,10 @@ const Navbar = () => {
                       <LoginForm />
                     </DialogContent>
                   </div>
-                </Dialog>
-                {/* Login Form Dialog */}
-                {/* SignUp Form Dialog */}
-                <Dialog
+                </Dialog> */}
+
+
+                {/* <Dialog
                   open={openSignUp}
                   onOpenChange={(openSignUp) => dispatch(closeSignUpDialog())}
                 >
@@ -510,7 +510,7 @@ const Navbar = () => {
                       </div>
                     </DialogContent>
                   </div>
-                </Dialog>
+                </Dialog> */}
                 {/* SignUp Form Dialog */}
               </>
             )}
@@ -550,7 +550,7 @@ const Navbar = () => {
                 </li>
                 <li className="flex justify-center gap-3 py-2 ">
                    {/* Login Form Dialog */}
-                <Dialog
+                {/* <Dialog
                   open={openLogin}
                   onOpenChange={(openLogin) => dispatch(closeLoginDialog())}
                 >
@@ -579,10 +579,10 @@ const Navbar = () => {
                       <LoginForm />
                     </DialogContent>
                   </div>
-                </Dialog>
+                </Dialog> */}
                 {/* Login Form Dialog */}
                 {/* SignUp Form Dialog */}
-                <Dialog
+                {/* <Dialog
                   open={openSignUp}
                   onOpenChange={(openSignUp) => dispatch(closeSignUpDialog())}
                 >
@@ -613,12 +613,12 @@ const Navbar = () => {
                       </div>
                     </DialogContent>
                   </div>
-                </Dialog>
+                </Dialog> */}
                 {/* SignUp Form Dialog */}
                 </li>
 
                 {/* Mobile Auth Buttons */}
-                {isAuthenticated ? (
+                {/* {isAuthenticated ? (
                   <li className="py-2">
                     <button
                       onClick={handleLogout}
@@ -629,7 +629,7 @@ const Navbar = () => {
                   </li>
                 ) : (
                   <></>
-                )}
+                )} */}
               </ul>
             </div>
           </>
@@ -641,41 +641,3 @@ const Navbar = () => {
 
 export default Navbar;
 
-
-// const CartItems = useSelector((state) => state.cart.cartItems);
-// const totalCartItems = CartItems.reduce((acc, item) => acc + item.quantity, 0);
-// const cartCount = CartItems.reduce((acc, item) => acc + item.quantity, 0);
-// console.log("Cart Count:", cartCount); // Log the cart count
-
-// console.log(CartItems[0]);
-//   const [isAuthenticated, setIsAuthenticated] = useState(false);
-//   const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage mobile menu state
-
-
-
-//   useEffect(() => {
-//     const token = Cookies.get("token");
-//     console.log("token" + token);
-
-//     setIsAuthenticated(!!token); // Convert token to boolean
-//   }, [Cookies.get("token")]); // Dependency array to re-run effect when token changes
-
-//   const handleLogout = () => {
-//     Cookies.remove("token");
-//     setIsAuthenticated(false);
-//     // Redirect to login page after logout
-//   };
-
-
-// div className="relative">
-//                           <FaShoppingCart />
-//                           {totalCartItems > 0 && (
-//                             <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-//                               {totalCartItems}
-//                             </span>
-//                           )}
-//                         </div>
-
-
-
-// clothbackend-oookieeoa-aarijs-projects-e50dbb08.vercel.app
