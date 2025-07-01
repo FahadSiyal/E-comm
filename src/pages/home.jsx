@@ -233,7 +233,7 @@ function Home() {
               {" "}
               <h1 className="font-bold text-md">Shops</h1>
             </span>
-            <Link to={"/shop"}>
+            <Link to={"/"}>
               {" "}
               <span>
                 {" "}

@@ -28,6 +28,8 @@ import Seller from "./pages/seller";
 import ScrollToTop from "./components/ScrollToTop";
 import BussinessDetails from "./pages/bussinessDetails";// Define router
 import BankingDetails from "./pages/bankingDetails";
+import ShopInventory from "./pages/shopInventory";
+import sellerDashboard from "./pages/sellerDashboard";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -39,6 +41,9 @@ const router = createBrowserRouter(
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:id" element={<ProductDesc />} />
         <Route path="/marketplace" element={<MarketPlace />} />
+        <Route path="/shopInventory" element={<ShopInventory />} />
+        {/* <Route path="/shopInventory/:id" element={<shopInventory />} /> */}
+      
 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/collection" element={<Collection />} />
@@ -60,6 +65,7 @@ const router = createBrowserRouter(
         <Route path="users" element={<Users />} />
         <Route path="products" element={<Products />} />
         <Route path="orders" element={<Orders />} />
+        <Route path="seller" element={<sellerDashboard />} />
       </Route>
       
     </Route>

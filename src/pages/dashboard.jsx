@@ -10,6 +10,20 @@ function Dashboard() {
   const [productCount, setProductCount] = useState(0)
   const [userCount, setUserCount] = useState(0) 
   const [orderCount, setorderCount] = useState(0) 
+  const [sellerCount, setSellerCount] = useState(0) // If you need this later
+
+
+  useEffect(() => {
+    const fetchSellerCount = async () => {
+      try {
+        const response = await axiosInstance.get('/seller/allsellers') // Adjust endpoint if needed
+        setSellerCount(response.data.length) // Assuming response contains the sellers' array
+      } catch (error) {
+        console.error("Failed to fetch seller count", error)
+      }
+    }
+    fetchSellerCount()
+  }, [])
 
   useEffect(() => {
     const fetchProductCount = async () => {
@@ -59,7 +73,8 @@ function Dashboard() {
         <div className="flex flex-1 flex-col bg-gray-100">
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-              <SectionCards productCount={productCount}  userCount ={userCount} orderCount={orderCount}/>
+              <SectionCards productCount={productCount} userCount ={userCount} orderCount={orderCount} sellerCount={sellerCount}/>
+            
               <div className="px-4 lg:px-6">
                 {/* <ChartAreaInteractive /> */}
               </div>
