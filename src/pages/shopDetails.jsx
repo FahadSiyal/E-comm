@@ -66,6 +66,33 @@ const shopDetails = () => {
             <p className="text-red-500 text-sm">{errors.name.message}</p>
           )}
         </div>
+        <div className="space-y-2 flex flex-col">
+          <Label className="text-gray-500 text-sm">
+            Mention Your SECP - Securities and Exchange Commission of Pakistan Registration Number
+          </Label>
+          <Input {...register("secpNumber")} className="lg:w-1/2 outline-none outline-black" />
+          {errors.name && (
+            <p className="text-red-500 text-sm">{errors.name.message}</p>
+          )}
+        </div>
+        <div className="space-y-2 flex flex-col">
+          <Label className="text-gray-500 text-sm">
+            Mention Your NTN - National Tax Number 
+          </Label>
+          <Input {...register("ntnNumber")} className="lg:w-1/2 outline-none outline-black" />
+          {errors.name && (
+            <p className="text-red-500 text-sm">{errors.name.message}</p>
+          )}
+        </div>
+        <div className="space-y-2 flex flex-col">
+          <Label className="text-gray-500 text-sm">
+            Mention Your Warehouse Unit Address
+          </Label>
+          <Input {...register("warehouseAddress")} className="lg:w-1/2 outline-none outline-black" />
+          {errors.name && (
+            <p className="text-red-500 text-sm">{errors.name.message}</p>
+          )}
+        </div>
         <div className="space-y-2">
           <Label className="text-gray-500 text-sm">
             Describe your brand in a few words to help define its identity

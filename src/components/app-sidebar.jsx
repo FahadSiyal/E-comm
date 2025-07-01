@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
 import { NavLink } from "react-router-dom";
+import { IoIosPeople } from "react-icons/io";
 import {
   Sidebar,
   SidebarContent,
@@ -60,11 +61,12 @@ const data = {
       url: "/wp-admin/products",
       icon: FolderIcon,
     },
-    {
-      title: "Users",
-      url: "/wp-admin/users",
-      icon: UsersIcon,
-    },
+    // {
+    //   title: "Users",
+    //   url: "/wp-admin/users",
+    //   icon: IoIosPeople,
+      
+    // },
     {
       title: "Sellers",
       url: "/wp-admin/seller",
@@ -73,11 +75,14 @@ const data = {
   ],
 };
 
+
+
+
 export function AppSidebar(props) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768); // md breakpoint
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

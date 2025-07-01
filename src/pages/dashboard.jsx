@@ -16,7 +16,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchSellerCount = async () => {
       try {
-        const response = await axiosInstance.get('/seller/allsellers') // Adjust endpoint if needed
+        const response = await axiosInstance.get('/seller') // Adjust endpoint if needed
         setSellerCount(response.data.length) // Assuming response contains the sellers' array
       } catch (error) {
         console.error("Failed to fetch seller count", error)

@@ -460,7 +460,7 @@ function Home() {
         </div>
         {/* Popular Products */}
           {/* Trending Products */}
-        <div className="flex flex-col justify-center mt-10 max-w-7xl lg:mx-auto md:mx-10 mx-3 gap-3 overflow-hidden my-10">
+        <div className="flex flex-col justify-center mt-10 max-w-7xl lg:mx-auto md:mx-10 mx-3 gap-3 overflow-hidden my-10 ">
           <div className="flex justify-between items-center">
             <span>
               <h1 className="font-bold text-md">Trending Products</h1>

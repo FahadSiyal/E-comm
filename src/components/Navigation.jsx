@@ -135,8 +135,7 @@ const Navbar = () => {
                                 </span>
                               </div>
                             </div>
-
-                            {/* Right Side: Controls */}
+                          
                             <div className="flex items-center gap-3">
                               <button
                                 onClick={() => {
@@ -201,11 +200,6 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/wp-admin" className="">
-                  AdminPanel
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/shop" className="">
                   Shop
                 </NavLink>
@@ -220,11 +214,7 @@ const Navbar = () => {
                   Contact Us
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink to="/seller" className="">
-                 <button className="border bg-red-500 text-white px-4 p-2 rounded-lg">Be a seller</button>
-                </NavLink>
-              </li> */}
+
              
              
             </ul>
@@ -446,72 +436,7 @@ const Navbar = () => {
                     </SheetContent>
                   </Sheet>
                 </li>
-                {/* Login Form Dialog */}
-                {/* <Dialog
-                  open={openLogin}
-                  onOpenChange={(openLogin) => dispatch(closeLoginDialog())}
-                >
-                  <div className="flex justify-center gap-3 ">
-                    <DialogTrigger asChild>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          dispatch(openLoginDialog());
-                          console.log("Login Dialog Opened");
-                        }}
-                        className="py-5 text-black "
-                      >
-                        <span className=" mt-2 border rounded-md hover:bg-gray-400 hover:text-white  px-4 py-2">
-                          Login{" "}
-                        </span>
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px] bg-white">
-                      <DialogHeader hidden>
-                        <DialogTitle>Sign Up</DialogTitle>
-                        <DialogDescription>
-                          Create an account to enjoy exclusive benefits.
-                        </DialogDescription>
-                      </DialogHeader>
-                      <LoginForm />
-                    </DialogContent>
-                  </div>
-                </Dialog> */}
-
-
-                {/* <Dialog
-                  open={openSignUp}
-                  onOpenChange={(openSignUp) => dispatch(closeSignUpDialog())}
-                >
-                  <div className="flex justify-center gap-3 ">
-                    <DialogTrigger asChild>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          dispatch(openSignUpDialog());
-                        }}
-                        className="py-5 text-black "
-                      >
-                        <span className=" mt-2 border rounded-md hover:bg-gray-400 hover:text-white  px-4 py-2">
-                          Signup{" "}
-                        </span>
-                      </button>
-                    </DialogTrigger>
-
-                    <DialogContent className="sm:max-w-[425px] bg-white">
-                      <DialogHeader hidden>
-                        <DialogTitle>Sign Up</DialogTitle>
-                        <DialogDescription>
-                          Create an account to enjoy exclusive benefits.
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div>
-                        <SignUpForm />
-                      </div>
-                    </DialogContent>
-                  </div>
-                </Dialog> */}
-                {/* SignUp Form Dialog */}
+ 
               </>
             )}
           </div>
@@ -527,11 +452,11 @@ const Navbar = () => {
                     Home
                   </NavLink>
                 </li>
-                <li className="py-2 border-b">
+                {/* <li className="py-2 border-b">
                   <NavLink to="/wp-admin" onClick={() => setIsMenuOpen(false)}>
                     Admin Panel
                   </NavLink>
-                </li>
+                </li> */}
 
                 <li className="py-2 border-b">
                   <NavLink to="/shop" onClick={() => setIsMenuOpen(false)}>
@@ -548,88 +473,8 @@ const Navbar = () => {
                     Contact
                   </NavLink>
                 </li>
-                <li className="flex justify-center gap-3 py-2 ">
-                   {/* Login Form Dialog */}
-                {/* <Dialog
-                  open={openLogin}
-                  onOpenChange={(openLogin) => dispatch(closeLoginDialog())}
-                >
-                  <div className="flex justify-center gap-3 ">
-                    <DialogTrigger asChild>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          dispatch(openLoginDialog());
-                          console.log("Login Dialog Opened");
-                        }}
-                        className="py-5 text-black "
-                      >
-                        <span className=" mt-2 border rounded-md hover:bg-gray-400 hover:text-white  px-4 py-2">
-                          Login{" "}
-                        </span>
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px] bg-white">
-                      <DialogHeader hidden>
-                        <DialogTitle>Sign Up</DialogTitle>
-                        <DialogDescription>
-                          Create an account to enjoy exclusive benefits.
-                        </DialogDescription>
-                      </DialogHeader>
-                      <LoginForm />
-                    </DialogContent>
-                  </div>
-                </Dialog> */}
-                {/* Login Form Dialog */}
-                {/* SignUp Form Dialog */}
-                {/* <Dialog
-                  open={openSignUp}
-                  onOpenChange={(openSignUp) => dispatch(closeSignUpDialog())}
-                >
-                  <div className="flex justify-center gap-3 ">
-                    <DialogTrigger asChild>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          dispatch(openSignUpDialog());
-                        }}
-                        className="py-5 text-black "
-                      >
-                        <span className=" mt-2 border rounded-md hover:bg-gray-400 hover:text-white  px-4 py-2">
-                          Signup{" "}
-                        </span>
-                      </button>
-                    </DialogTrigger>
-
-                    <DialogContent className="sm:max-w-[425px] bg-white">
-                      <DialogHeader hidden>
-                        <DialogTitle>Sign Up</DialogTitle>
-                        <DialogDescription>
-                          Create an account to enjoy exclusive benefits.
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div>
-                        <SignUpForm />
-                      </div>
-                    </DialogContent>
-                  </div>
-                </Dialog> */}
-                {/* SignUp Form Dialog */}
-                </li>
-
-                {/* Mobile Auth Buttons */}
-                {/* {isAuthenticated ? (
-                  <li className="py-2">
-                    <button
-                      onClick={handleLogout}
-                      className="bg-red-500 text-white rounded-md hover:bg-red-600 text-sm px-4 py-2"
-                    >
-                      Logout
-                    </button>
-                  </li>
-                ) : (
-                  <></>
-                )} */}
+ 
+                  
               </ul>
             </div>
           </>

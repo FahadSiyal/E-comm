@@ -87,7 +87,7 @@ function Products() {
     <>
       <div>
         <SidebarInset>
-          <SiteHeader title="Your Products" />
+          <SiteHeader title="Total Products" />
 
           <div className="flex justify-end px-6 pt-4">
             <Dialog open={showForm} onOpenChange={setShowForm}>
