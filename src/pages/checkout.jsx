@@ -59,7 +59,7 @@ const Checkout = () => {
   return (
     <>
       <section className=" min-h-screen  ">
-        <div className="grid lg:grid-cols-2 grid-cols-1 lg:my-0 mb-5  ">
+        <div className="grid lg:grid-cols-2 grid-cols-1 lg:my-0 mb-5   ">
           <div className="left lg:bg-white bg-none flex-col overflow-y-auto  gap-3 h-auto flex lg:px-16 px-2 lg:tracking-normal tracking-tighter lg:text-base text-sm lg:py-10 py-0 ">
             <section className=" lg:min-h-screen h-auto lg:py-10 py-2 px-0   ">
               <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-8">
