@@ -74,14 +74,14 @@ const BankingDetails = () => {
       const { data } = await axios.post("/seller/register", payload);
       console.log("Seller Registered:", data);
       toast.success("Seller in successfully!");
-      navigate("/seller"); // or success page
+      navigate("/seller-auth"); // or success page
     } catch (error) {
       toast.error("Seller Login Failed!");
       console.error(
         "Registration Error:",
         error.response?.data || error.message
       );
-      navigate("/seller");
+      navigate("/seller-auth"); // or error page
     }
   };
 

@@ -29,7 +29,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import BussinessDetails from "./pages/bussinessDetails";// Define router
 import BankingDetails from "./pages/bankingDetails";
 import ShopInventory from "./pages/shopInventory";
-import sellerDashboard from "./pages/sellerDashboard";
+import Sellers from "./pages/sellerDashboard";
+import Credentials from "./pages/credentials";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -58,14 +60,16 @@ const router = createBrowserRouter(
         <Route path="/shopdetails" element={<ShopDetails />} />
         <Route path="/bussinessdetails" element={<BussinessDetails />} />
         <Route path="/bankingdetails" element={<BankingDetails />} />
+        <Route path="/seller-auth" element={<Credentials/>} />
 
 
       <Route path="/wp-admin" element={<LayoutSidebar />}>
         <Route path="" element={<Dashboard />} />
-        <Route path="users" element={<Users />} />
+        {/* <Route path="users" element={<Users />} /> */}
         <Route path="products" element={<Products />} />
         <Route path="orders" element={<Orders />} />
-        <Route path="seller" element={<sellerDashboard />} />
+        <Route path="seller" element={<Sellers/>} />
+        {/* <Route path="seller" element={<sellerDashboard />} /> */}
       </Route>
       
     </Route>

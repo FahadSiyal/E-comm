@@ -66,6 +66,13 @@ const bussinessDetails = () => {
             <Input {...register("phone")} className="lg:w-1/2" />
             {errors.phone && <p className="text-red-500 text-xs">{errors.phone.message}</p>}
           </div>
+          <div className="space-y-2 flex flex-col">
+            <Label className="text-gray-500 text-sm">
+              Mention Alternate Contact Number
+            </Label>
+            <Input {...register("alternatePhoneNo")} className="lg:w-1/2" />
+            {errors.phone && <p className="text-red-500 text-xs">{errors.phone.message}</p>}
+          </div>
           <Button className="lg:w-36 text-white bg-red-500">Next</Button>
         </form>
       </div>

@@ -134,7 +134,7 @@ const seller = () => {
           <div className="flex items-center justify-center  rounded-lg bg-gray-100">
       <Card className="bg-white flex flex-col px-5 py-8 w-96 space-y-6 shadow-md rounded-lg">
         <div>
-          <h1 className="text-2xl font-bold text-center">Seller Login</h1>
+          <h1 className="text-2xl font-bold text-center">Manufacturer Login</h1>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
