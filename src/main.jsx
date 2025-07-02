@@ -31,9 +31,6 @@ import BankingDetails from "./pages/bankingDetails";
 import ShopInventory from "./pages/shopInventory";
 import Sellers from "./pages/sellerDashboard";
 import Credentials from "./pages/credentials";
-import SellerLayoutSidebar from "./components/SellerLayoutSidebar";
-import ManufacturerDashboard from "./pages/manufacturerDashboard";
-import SellerOrders from "./pages/SellerOrders"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,7 +43,7 @@ const router = createBrowserRouter(
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:id" element={<ProductDesc />} />
         <Route path="/marketplace" element={<MarketPlace />} />
-   
+        <Route path="/shopInventory" element={<ShopInventory />} />
         {/* <Route path="/shopInventory/:id" element={<shopInventory />} /> */}
       
 
@@ -73,12 +70,6 @@ const router = createBrowserRouter(
         <Route path="orders" element={<Orders />} />
         <Route path="seller" element={<Sellers/>} />
         {/* <Route path="seller" element={<sellerDashboard />} /> */}
-      </Route>
-
-      <Route path="/manufacturerdashboard" element={<SellerLayoutSidebar/>} >
- <Route path="" element={<ManufacturerDashboard/>} />
- <Route path="sellerorders" element={<SellerOrders/>} />
-      <Route path="shopInventory" element={<ShopInventory />} />
       </Route>
       
     </Route>
