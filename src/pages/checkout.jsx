@@ -37,25 +37,31 @@ const Checkout = () => {
     resolver:zodResolver(checkoutSchema)
   });
   
-  const onSubmit = async (data) => {
-    const payload = {
-        ...data,          // all form fields (name, email, phone, address, etc.)
-        CartItems,        // add cart items from Redux state
-      };
-    try {
-      const response = await axios.post("/order", payload);
-      console.log("Contact Done:",data);
-      toast.success(" Order placedsuccessfully!");
-      reset()
-     navigate("/")
-     dispatch(clearCart())
-    } catch (error) {
-      
-     dispatch(openLoginDialog())
-      toast.error("You need to loggined!");
-     
-    }
+const onSubmit = async (data) => {
+const formattedCartItems = CartItems.map((item) => ({
+  productId: item._id,
+  name: item.name,
+  quantity: item.quantity,
+}));
+
+
+  const payload = {
+    ...data,
+    CartItems: formattedCartItems,  // send formatted items
   };
+
+  try {
+    const response = await axios.post("/order", payload);
+    console.log("Order Submitted:", response.data);
+    toast.success("Order placed successfully!");
+    reset();
+    navigate("/");
+    dispatch(clearCart());
+  } catch (error) {
+    dispatch(openLoginDialog());
+    toast.error("You need to be logged in!");
+  }
+};
   return (
     <>
       <section className=" min-h-screen  ">
@@ -237,10 +243,10 @@ const Checkout = () => {
 {/* Final Total with delivery charges */}
 <div className="flex flex-col items-end justify-end mt-5">
   {(() => {
-    const subtotal = CartItems.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    );
+      const subtotal = CartItems.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
     const deliveryCharge = 200;
     const total = subtotal + deliveryCharge;
 
