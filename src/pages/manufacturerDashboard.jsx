@@ -1,0 +1,90 @@
+import React, { useEffect, useState } from 'react'
+import { AppSidebar } from "@/components/app-sidebar"
+import { SectionCards } from "@/components/section-cards"
+import { SellerSiteHeader } from '../components/seller-site-header'
+import { SidebarInset } from "@/components/ui/sidebar"
+import { Outlet } from 'react-router-dom'
+import axiosInstance from '@/services/axiosInstance' // Don't forget this!
+
+function ManufacturerDashboard() {
+  const [productCount, setProductCount] = useState(0)
+  const [userCount, setUserCount] = useState(0) 
+  const [orderCount, setorderCount] = useState(0) 
+  const [sellerCount, setSellerCount] = useState(0) // If you need this later
+
+
+  useEffect(() => {
+    const fetchSellerCount = async () => {
+      try {
+        const response = await axiosInstance.get('/seller') // Adjust endpoint if needed
+        setSellerCount(response.data.length) // Assuming response contains the sellers' array
+      } catch (error) {
+        console.error("Failed to fetch seller count", error)
+      }
+    }
+    fetchSellerCount()
+  }, [])
+
+  useEffect(() => {
+    const fetchProductCount = async () => {
+      try {
+        const response = await axiosInstance.get('/products') // Assuming this returns all products
+        setProductCount(response.data.products.length)
+      } catch (error) {
+        console.error("Failed to fetch product count", error)
+      }
+    }
+
+    fetchProductCount()
+  }, [])
+
+  useEffect(() => {
+    const fetchUserCount = async () => {
+      try {
+        const response = await axiosInstance.get('/auth/users') // Adjust endpoint if needed
+        setUserCount(response.data.length) // Assuming response contains the users' array
+      } catch (error) {
+        console.error("Failed to fetch user count", error)
+      }
+    }
+
+    fetchUserCount()
+  }, [])
+
+  useEffect(() => {
+    const fetchOrderCount = async () => {
+      try {
+        const response = await axiosInstance.get('/Checkout') // Adjust endpoint if needed
+        setorderCount(response.data.length) // Assuming response contains the orders' array
+      } catch (error) {
+        console.error("Failed to fetch order count", error)
+      }
+    }
+
+    fetchOrderCount()
+  }, [])
+
+
+
+  return (
+    <div>
+      <SidebarInset>
+        <SellerSiteHeader title="Seller Panel" />
+        <div className="flex flex-1 flex-col bg-gray-100">
+          <div className="@container/main flex flex-1 flex-col gap-2">
+            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+              <SectionCards productCount={productCount} userCount ={userCount} orderCount={orderCount} sellerCount={sellerCount}/>
+            
+              <div className="px-4 lg:px-6">
+                {/* <ChartAreaInteractive /> */}
+              </div>
+              {/* <DataTable data={data} /> */}
+            </div>
+          </div>
+        </div>
+      </SidebarInset>
+    </div>
+  )
+}
+
+export default ManufacturerDashboard
