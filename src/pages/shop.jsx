@@ -168,10 +168,10 @@ const Shop = () => {
                   <div className="flex justify-between lg:flex-row  items-center">
                     <div className="text-md ">
                       <span className="line-through decoration-red-500 text-red-800 text-xs">
-                        ${product.actualprice}
+                        ${product.price}
                       </span>{" "}
                       <span className="font-bold lg:text-lg text-xs ">
-                        ${product.price}
+                        ${product.actualprice}
                       </span>
                     </div>
                     <div>

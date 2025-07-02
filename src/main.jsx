@@ -30,7 +30,6 @@ import BussinessDetails from "./pages/bussinessDetails";// Define router
 import BankingDetails from "./pages/bankingDetails";
 import ShopInventory from "./pages/shopInventory";
 import Sellers from "./pages/sellerDashboard";
-import AdminProtectedRoute from "./components/AdminProtectedRoute";
 import Credentials from "./pages/credentials";
 import SellerLayoutSidebar from "./components/SellerLayoutSidebar";
 import ManufacturerDashboard from "./pages/manufacturerDashboard";

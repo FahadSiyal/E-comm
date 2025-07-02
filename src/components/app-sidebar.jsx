@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
 import { NavLink } from "react-router-dom";
-
+import { IoIosPeople } from "react-icons/io";
 import {
   Sidebar,
   SidebarContent,
@@ -29,7 +29,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { SlLogout } from "react-icons/sl";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const data = {
   user: {
@@ -74,13 +81,6 @@ const data = {
 export function AppSidebar(props) {
   const [isMobile, setIsMobile] = useState(false);
 
-
-  const handleLogout = () => {
-  localStorage.removeItem("adminToken");
-  window.location.href = "/wp-admin";
-};
-
-
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -122,15 +122,10 @@ export function AppSidebar(props) {
           <SidebarContent>
             <NavMain items={data.navMain} />
           </SidebarContent>
-          <div className="flex items-center px-5 gap-2 mb-6">
-          <SlLogout />
-<button onClick={handleLogout} className="text-gray-700 font-medium hover:underline">
-  Logout
-</button>
-</div>
-          {/* <SidebarFooter>
+
+          <SidebarFooter>
             <NavUser user={data.user} />
-          </SidebarFooter> */}
+          </SidebarFooter>
         </Sidebar>
       )}
       {isMobile && (
@@ -161,7 +156,15 @@ export function AppSidebar(props) {
                   <NavMain items={data.navMain} />
                 </SidebarContent>
 
-
+                {/* Logout Route */}
+                <div className="mt-6 border-t pt-4">
+                  <a
+                    href="/logout"
+                    className="block text-red-600 font-medium hover:underline"
+                  >
+                    Logout
+                  </a>
+                </div>
               </SheetContent>
             </Sheet>
           </div>
