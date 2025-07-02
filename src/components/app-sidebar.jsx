@@ -68,7 +68,7 @@ const data = {
       
     // },
     {
-      title: "Sellers",
+      title: "Manufacturers",
       url: "/wp-admin/seller",
       icon: UsersIcon,
     },

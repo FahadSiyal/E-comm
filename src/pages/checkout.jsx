@@ -146,112 +146,125 @@ const Checkout = () => {
             </section>
           </div>
 
-          <div className="right  mx-2  rounded-lg lg:mx-20 md:mx-20 mt-10  ">
+    <div className="right mx-2 rounded-lg lg:mx-20 md:mx-20 mt-10">
+  <div>
+    <h1 className="font-semibold lg:text-left text-center">Shopping Cart</h1>
+  </div>
+  <div>
+    <Card className="lg:mt-10 mt-3 border border-black h-auto py-1">
+      <div className="w-auto my-10 mx-5">
+        {/* Upper Content */}
+        <div className="flex lg:flex-row flex-col justify-between border-black pb-2">
+          <div className="Left w-full flex flex-col gap-4">
             <div>
-              <h1 className="font-semibold  lg:text-left text-center ">Shopping Cart</h1>
+              <h1 className="font-bold text-xl lg:text-3xl">ITEMS</h1>
             </div>
-            <div className="">
-              <Card className="lg:mt-10 mt-3 border border-black    h-auto py-1 ">
-                <div className=" w-auto  my-10 mx-5">
-                  {/* Upper Content */}
-                  <div className="flex lg:flex-row flex-col justify-between  border-black pb-2 ">
-                    <div className="Left w-full flex flex-col gap-4">
-                      <div>
-                        <h1 className="font-bold  text-xl lg:text-3xl ">
-                          ITEMS
-                        </h1>
-                      </div>
-                      <div className="text-sm">
-                        <div className="flex gap-3">
-                          <div className="flex flex-col gap-1 w-full  h-80 overflow-y-scroll  ">
-                            {CartItems.map((item, index) => (
-                              <Card
-                                key={index}
-                                className="w-full h-20 flex flex-row items-center  justify-between px-4 rounded-md  bg-gray-50 "
-                              >
-                                {/* Left Side: Product Info */}
-                                <div className="flex  items-center gap-2 justify-center">
-                                  <div className="bg-gray-800 h-7 w-7"></div>
-                                  <div>
-                                    <h1 className="text-sm font-semibold">
-                                      {item.name}
-                                    </h1>
-                                    <span className="text-xs text-gray-500">
-                                      Quantity : {item.quantity}
-                                    </span>
-                                  </div>
-                                </div>
+            <div className="text-sm">
+              <div className="flex gap-3">
+                <div className="flex flex-col gap-1 w-full h-80 overflow-y-scroll">
+                 {CartItems.map((item, index) => (
+  <Card
+    key={index}
+    className="w-full h-20 flex flex-row items-center justify-between px-4 rounded-md bg-gray-50"
+  >
+    {/* Left Side: Product Info */}
+    <div className="flex items-center gap-2 justify-center">
+      <div className="bg-gray-800 h-7 w-7"></div>
+      <div>
+        <h1 className="text-sm font-semibold">{item.name}</h1>
+        <span className="text-xs text-gray-500">
+          Quantity: {item.quantity}
+        </span>
+      </div>
+    </div>
 
-                                {/* Right Side: Controls */}
-                                <div className="flex items-center gap-3">
-                                  <button
-                                    onClick={() => {
-                                      dispatch(addToCart(item));
-                                    }}
-                                    className="px-2 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600"
-                                  >
-                                    +
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      dispatch(removeFromCart(item));
-                                    }}
-                                    className="px-2 py-1 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600"
-                                  >
-                                    -
-                                  </button>
-                                  <div
-                                    onClick={() => {
-                                      dispatch(deleteFromCart(item));
-                                    }}
-                                    className="hover:text-red-600 cursor-pointer text-lg"
-                                  >
-                                    <MdDelete />
-                                  </div>
-                                </div>
-                              </Card>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-               
-                  {/* {Lower Content} */}
-                  <div className="border-t-2
-                    border-black mt-20">
-                    <div className="mt-2 flex flex-col gap-3">
-                      <div>
-                        <h1 className="font-bold">Products</h1>
-                      </div>
-                      <div className="w-full flex justify-around font-bold bg-black text-white">
-                        <div>Title</div>
-                        <div>Brand</div>
-                        <div>Amount</div>
-                      </div>
-                      <div className="w-full flex justify-around border-b-2 pb-2 ">
-                        <div>Project Title</div>
-                        <div>Brand name</div>
-                        <div>$212.22</div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-end justify-end mt-5">
-                      <div className="flex gap-10 border-b ">
-                        <span>Tax :</span> <span>$0.00</span>
-                      </div>
-                      <div className="flex gap-10 border-b font-bold mt-2 ">
-                        <span>Total :</span> <span>$212.22</span>
-                      </div>
-                    
-                    </div>
-                  </div>
-                  {/* {Lower Content} */}
-             
+    {/* Right Side: Amount and Controls */}
+    <div className="flex items-center gap-3">
+      <div className="text-sm font-semibold">
+        Rs. {Number(item.price ).toFixed(2)}
+      </div>
+      <button
+        onClick={() => dispatch(addToCart(item))}
+        className="px-2 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600"
+      >
+        +
+      </button>
+      <button
+        onClick={() => dispatch(removeFromCart(item))}
+        className="px-2 py-1 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600"
+      >
+        -
+      </button>
+      <div
+        onClick={() => dispatch(deleteFromCart(item))}
+        className="hover:text-red-600 cursor-pointer text-lg"
+      >
+        <MdDelete />
+      </div>
+    </div>
+  </Card>
+))}
+
                 </div>
-              </Card>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Lower Content */}
+   {/* Products Summary with totals */}
+<div className="mt-2 flex flex-col gap-3">
+  <h1 className="font-bold">Products</h1>
+
+  <div className="w-full flex justify-around font-bold bg-black text-white">
+    <div>Title</div>
+   
+    <div>Amount</div>
+  </div>
+
+  {CartItems.map((item, index) => (
+    <div
+      key={index}
+      className="w-full flex justify-around border-b-2 pb-2"
+    >
+      <div>{item.name}</div>
+      {/* <div>{item.brand || "N/A"}</div> */}
+      <div>Rs. {(item.price * item.quantity).toFixed(0)}</div>
+    </div>
+  ))}
+</div>
+
+{/* Final Total with delivery charges */}
+<div className="flex flex-col items-end justify-end mt-5">
+  {(() => {
+    const subtotal = CartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+    const deliveryCharge = 200;
+    const total = subtotal + deliveryCharge;
+
+    return (
+      <>
+        <div className="flex gap-10 border-b mt-2 font-medium">
+          <span>Delivery Charges:</span>
+          <span>Rs. {deliveryCharge}</span>
+        </div>
+        <div className="flex gap-10 border-b font-bold mt-2">
+          <span>Total:</span>
+          <span>Rs. {total.toFixed(0)}</span>
+        </div>
+      </>
+    );
+  })()}
+</div>
+
+      
+      </div>
+    </Card>
+  </div>
+</div>
+
         </div>
       </section>
     </>
