@@ -1,4 +1,5 @@
-import { AppSidebar } from "@/components/app-sidebar"
+// import { AppSidebar } from "@/components/app-sidebar"
+import { SellerAppSidebar } from "./Seller-app-sidebar"
 // import { ChartAreaInteractive } from "@/components/chart-area-interactive"
 // import { DataTable } from "@/components/data-table"
 import { SectionCards } from "@/components/section-cards"
@@ -10,11 +11,11 @@ import { Outlet } from 'react-router-dom'
 
 
 
-function LayoutSidebar() {
+function SellerLayoutSidebar () {
   return (
     <>
     <SidebarProvider>
-      <AppSidebar variant="inset" />
+      <SellerAppSidebar variant="inset" />
       <SidebarInset>
         {/* <SiteHeader /> */}
         <div className="flex flex-1 flex-col bg-gray-100">
@@ -36,6 +37,6 @@ function LayoutSidebar() {
   )
 }
 
-export default LayoutSidebar
+export default SellerLayoutSidebar
 
 

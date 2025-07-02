@@ -126,17 +126,14 @@ export default function EcommerceInventory() {
   }, [currentPage, itemsPerPage, searchTerm]); // 👈 make sure `searchTerm` is added here
 
   // Filter products based on search, category, and brand
-  const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
-      const matchesSearch =
-        product.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.desc?.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory =
-        !selectedCategory || product.category === selectedCategory;
-      const matchesBrand = !selectedBrand || product.brand === selectedBrand;
-      return matchesSearch && matchesCategory && matchesBrand;
-    });
-  }, [products, searchTerm, selectedCategory, selectedBrand]);
+const filteredProducts = useMemo(() => {
+  return products.filter((product) => {
+    const matchesSearch =
+      product.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.desc?.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesSearch;
+  });
+}, [products, searchTerm]);
 
   const handleAddToCart = (product) => {
     console.log("Adding to cart:", product._id);
@@ -144,12 +141,10 @@ export default function EcommerceInventory() {
     toast.success(`${product.name} added to cart!`);
   };
 
-  const clearFilters = () => {
-    setSelectedCategory("");
-    setSelectedBrand("");
-    setSearchTerm("");
-  };
-
+const clearFilters = () => {
+  setSearchInput("");
+  setSearchTerm("");
+};
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
@@ -169,33 +164,34 @@ export default function EcommerceInventory() {
         <div className="flex items-center justify-between">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-            <Input
-              type="text"
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-1 w-64"
-            />
+         <Input
+  type="text"
+  placeholder="Search products..."
+  value={searchInput}
+  onChange={(e) => setSearchInput(e.target.value)}
+  className="pl-10 pr-4 py-1 w-64"
+/>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         {/* Active Filters */}
-        {(selectedCategory || selectedBrand || searchTerm) && (
+        {( searchTerm) && (
           <div className="mb-6 flex items-center space-x-2">
             <span className="text-sm text-gray-600">Active filters:</span>
 
             {searchTerm && (
               <Badge
+              className="bg-green-200 cursor-pointer"
                 variant="secondary"
-                className="cursor-pointer"
+      
                 onClick={() => setSearchTerm("")}
               >
                 Search: {searchTerm} ×
               </Badge>
             )}
-            <Button variant="ghost" size="sm" onClick={clearFilters}>
+            <Button className="bg-red-200" variant="ghost" size="sm" onClick={clearFilters}>
               Clear all
             </Button>
           </div>
