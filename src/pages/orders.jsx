@@ -29,7 +29,7 @@ useEffect(() => {
   const fetchOrders = async () => {
     try {
       const response = await axiosInstance.get("/Checkout"); // Adjust the endpoint as needed
-      console.log(response.data);
+      console.log(response.data); // Log the fetched orders);
       setOrders(response.data); // Set the fetched orders to state
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -67,27 +67,51 @@ const count = 0
             <TableHead className="px-4 py-2 text-red-600">Customer Name</TableHead>
             <TableHead className="px-4 py-2 text-red-600">Phone No.</TableHead>
             <TableHead className="px-4 py-2 text-red-600">Orders</TableHead>
+            <TableHead className="px-4 py-2 text-red-600">Quantity</TableHead>
+            <TableHead className="px-4 py-2 text-red-600">Manufacturer Name</TableHead>
             {/* <TableHead className="px-4 py-2 text-red-600">Category</TableHead> */}
           </TableRow>
         </TableHeader>
-        <TableBody>
-          {/* Map over the orders array and display each order */}
-          {order.length > 0 ? (
-            order.map((order , i) => (
-              <TableRow key={order._id}>
-                <TableCell className="font-medium px-4 py-2">{i + 1}</TableCell>
-                <TableCell className="px-4 py-2">{order.name}</TableCell>
-                <TableCell className="px-4 py-2">{order.phone}</TableCell>
-                <TableCell className="px-4 py-2">{order.description}</TableCell>
-                {/* <TableCell className="px-4 py-2">{order.category}</TableCell> */}
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan="5" className="text-center py-4">No orders found.</TableCell>
-            </TableRow>
-          )}
-        </TableBody>
+  <TableBody>
+  {order.length > 0 ? (
+    order.map((order, i) => (
+      <TableRow key={order._id}>
+        <TableCell className="font-medium px-4 py-2">{i + 1}</TableCell>
+        <TableCell className="px-4 py-2">{order.name}</TableCell>
+        <TableCell className="px-4 py-2">{order.phone}</TableCell>
+
+        {/* Orders Column */}
+        <TableCell className="px-4 py-2">
+          <div className="flex flex-col gap-1">
+            {order.cartItems.map((item, index) => (
+              <div key={index}>
+                {item.productId?.name || "Deleted Product"}
+              </div>
+            ))}
+          </div>
+        </TableCell>
+
+        {/* Quantity Column */}
+        <TableCell className="px-4 py-2">
+          <div className="flex flex-col gap-1">
+            {order.cartItems.map((item, index) => (
+              <div key={index}>
+                {item.quantity}
+              </div>
+            ))}
+          </div>
+        </TableCell>
+      </TableRow>
+    ))
+  ) : (
+    <TableRow>
+      <TableCell colSpan="5" className="text-center py-4">
+        No orders found.
+      </TableCell>
+    </TableRow>
+  )}
+</TableBody>
+
       </Table>
 </div>
 

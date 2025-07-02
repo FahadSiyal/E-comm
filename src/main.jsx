@@ -30,6 +30,7 @@ import BussinessDetails from "./pages/bussinessDetails";// Define router
 import BankingDetails from "./pages/bankingDetails";
 import ShopInventory from "./pages/shopInventory";
 import Sellers from "./pages/sellerDashboard";
+import AdminProtectedRoute from "./components/AdminProtectedRoute";
 import Credentials from "./pages/credentials";
 
 const router = createBrowserRouter(
@@ -63,14 +64,14 @@ const router = createBrowserRouter(
         <Route path="/seller-auth" element={<Credentials/>} />
 
 
-      <Route path="/wp-admin" element={<LayoutSidebar />}>
-        <Route path="" element={<Dashboard />} />
-        {/* <Route path="users" element={<Users />} /> */}
-        <Route path="products" element={<Products />} />
-        <Route path="orders" element={<Orders />} />
-        <Route path="seller" element={<Sellers/>} />
-        {/* <Route path="seller" element={<sellerDashboard />} /> */}
-      </Route>
+  <Route path="/wp-admin" element={<AdminProtectedRoute />}>
+  <Route path="" element={<LayoutSidebar />}>
+    <Route index element={<Dashboard />} />
+    <Route path="products" element={<Products />} />
+    <Route path="orders" element={<Orders />} />
+    <Route path="seller" element={<Sellers />} />
+  </Route>
+</Route>
       
     </Route>
   )

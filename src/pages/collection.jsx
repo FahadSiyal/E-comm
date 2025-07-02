@@ -142,10 +142,10 @@ const Collection = () => {
 
                     <div className="text-md ">
                       <span className="line-through decoration-red-500 text-red-800 text-xs">
-                        ${product.price}
+                        ${product.actualprice}
                       </span>{" "}
                       <span className="font-bold lg:text-lg text-xs ">
-                        ${product.actualprice}
+                        ${product.price}
 
                       </span>
                     </div>
