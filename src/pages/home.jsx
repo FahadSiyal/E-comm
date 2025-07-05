@@ -231,7 +231,7 @@ function Home() {
           <div className="flex justify-between items-center">
             <span>
               {" "}
-              <h1 className="font-bold text-md">Shops</h1>
+              <h1 className="font-bold text-md">Company</h1>
             </span>
             <Link to={"/"}>
               {" "}
@@ -259,7 +259,7 @@ function Home() {
                     <div className="p-1">
                       <Card className="flex justify-center bg-gray-300  h-52 p-0 overflow-hidden bg-[url('./s3.jpg')] bg-center bg-cover"></Card>
                       <div className="text-center text-sm font-medium text-gray-700 mt-2">
-                        Shop name
+                        Company name
                       </div>
                     </div>
                   </CarouselItem>
@@ -320,10 +320,10 @@ function Home() {
                             <div className="flex justify-between lg:flex-row items-center">
                               <div className="text-md">
                                 <span className="line-through decoration-red-500 text-red-800 text-xs">
-                                  ${product.price}
+                                  ${product.actualprice}
                                 </span>{" "}
                                 <span className="font-bold lg:text-lg text-xs">
-                                  ${product.actualprice}
+                                  ${product.price}
                                 </span>
                               </div>
                               <div>
@@ -423,10 +423,10 @@ function Home() {
                             <div className="flex justify-between lg:flex-row items-center">
                               <div className="text-md">
                                 <span className="line-through decoration-red-500 text-red-800 text-xs">
-                                  ${product.price}
+                                  ${product.actualprice}
                                 </span>{" "}
                                 <span className="font-bold lg:text-lg text-xs">
-                                  ${product.actualprice}
+                                  ${product.price}
                                 </span>
                               </div>
                               <div>
@@ -510,10 +510,10 @@ function Home() {
                             <div className="flex justify-between lg:flex-row items-center">
                               <div className="text-md">
                                 <span className="line-through decoration-red-500 text-red-800 text-xs">
-                                  ${product.price}
+                                  ${product.actualprice}
                                 </span>{" "}
                                 <span className="font-bold lg:text-lg text-xs">
-                                  ${product.actualprice}
+                                  ${product.price}
                                 </span>
                               </div>
                               <div>

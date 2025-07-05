@@ -36,7 +36,7 @@ function Sellers() {
       <div className="">
         <div>
           <SidebarInset>
-            <SiteHeader title="Sellers" />
+            <SiteHeader title="Manufacturers" />
             <div className="flex flex-1 flex-col bg-gray-100 ">
               <div className="@container/main flex flex-1 flex-col gap-2">
                 <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6"></div>
@@ -46,7 +46,7 @@ function Sellers() {
         </div>
         <div className="px-6">
           <Table className="bg-white rounded-md w-full">
-            <TableCaption className="py-2">List of All Sellers</TableCaption>
+            <TableCaption className="py-2">List of All Manufacturers</TableCaption>
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px] px-4 py-2 text-red-600">S.no</TableHead>
